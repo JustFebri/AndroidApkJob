@@ -45,6 +45,20 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, LatestMessagesActivity::class.java)
             startActivity(intent)
         }
+
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.network -> {
+                    // Respond to navigation item 1 click
+                    true
+                }
+                R.id.item2 -> {
+                    // Respond to navigation item 2 click
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     private fun verifyUserIsLoggedIn() {
