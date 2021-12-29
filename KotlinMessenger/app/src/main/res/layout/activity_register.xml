@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_light"
+    android:background="#EFD572"
     tools:context=".registerlogin.RegisterActivity">
 
     <EditText
@@ -91,7 +91,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Already have an account?"
-        android:textColor="@android:color/white"
+        android:textColor="#32776E"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/register_button_register"
