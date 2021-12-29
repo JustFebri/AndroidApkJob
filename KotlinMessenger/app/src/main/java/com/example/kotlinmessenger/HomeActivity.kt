@@ -68,6 +68,10 @@ class HomeActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
+        profimg.setOnClickListener {
+
+        }
     }
 
     private fun verifyUserIsLoggedIn() {
