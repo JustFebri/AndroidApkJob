@@ -10,8 +10,12 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
+import android.widget.TextView
+import com.example.kotlinmessenger.jobs.jobItem
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,22 +51,35 @@ class addJob : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val addJobButton : Button = view.findViewById<Button>(R.id.addJobButton)
+        val addJobButton: Button = view.findViewById<Button>(R.id.addJobButton)
 //        val CategorySpinner : Spinner = view.findViewById<Spinner>(R.id.categoryspinner)
         addJobButton.setOnClickListener {
+            val title : String = view.findViewById<TextView>(R.id.jobtitle).text.toString()
+            val description : String = view.findViewById<TextView>(R.id.description).text.toString()
+            val nowTime: Calendar = Calendar.getInstance()
+            val id = nowTime.timeInMillis.hashCode().toString()
+            val db : FirebaseFirestore = FirebaseFirestore.getInstance()
+            val newData  = jobItem(id, title, description)
 
+            db.collection("dbJobs").document(id)
+                .set(newData)
+                .addOnSuccessListener {
+//                    changeFragment(R.id.myframe, HomeActivity(), parentFragmentManager)
+                    Log.d("Firebase", "Add data success")
+                }
+                .addOnFailureListener{
+                    Log.d("Firebase", it.message .toString())
+                }
         }
         getCategories()
-
     }
 
-    fun getCategories(){
+    fun getCategories() {
         db.collection("dbCategories")
             .get()
             .addOnSuccessListener { result ->
                 val s = view?.findViewById<Spinner>(R.id.categoryspinner)
-                if(this != null)
-                {
+                if (this != null) {
                     arraySpinner.clear()
                     for (document in result) {
                         arraySpinner.add(document.get("category").toString())

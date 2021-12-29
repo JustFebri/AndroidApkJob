@@ -3,38 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#EFD572"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="#EFD572">
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/rv_jobtitle"
         android:layout_width="299dp"
         android:layout_height="48dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
-        android:textStyle="bold"
-        android:textColor="#32776E"
         android:text="Job Title"
+        android:textColor="#32776E"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/rv_jobdesc"
         android:layout_width="374dp"
         android:layout_height="53dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
         android:textColor="#32776E"
         android:textStyle="bold"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-        app:layout_constraintStart_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintStart_toStartOf="@+id/rv_jobtitle"
+        app:layout_constraintTop_toBottomOf="@+id/rv_jobtitle" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/textView14"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintBottom_toTopOf="@+id/rv_jobdesc"
+        app:layout_constraintStart_toEndOf="@+id/rv_jobtitle"
         app:srcCompat="@android:drawable/ic_menu_search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

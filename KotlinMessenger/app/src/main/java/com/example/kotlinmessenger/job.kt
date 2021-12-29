@@ -13,6 +13,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlinmessenger.jobs.adapterJobs
 import com.example.kotlinmessenger.jobs.jobItem
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -53,70 +54,28 @@ class job : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        val recyclerview : RecyclerView = view.findViewById((R.id.rvJobs))
+        getData(recyclerview)
 
     }
 
-//    private fun getData(recyclerview:RecyclerView, filter:String = "null"){
-//        var pemasukan : Int = 0
-//        var pengeluaran : Int = 0
-//        db.collection("dbLogs")
-//            .get()
-//            .addOnSuccessListener { result ->
-//                listjobs.clear()
-//                if(filter == "null")
-//                {
-//                    for (document in result) {
-//                        listjobs.add(log(document.get("name").toString(), document.get("date").toString(),
-//                            document.get("amount").toString(), document.get("category").toString(), document.get("type").toString(), document.get("id").toString()))
-//                        if(document.get("type").toString() == "false")
-//                        {
-//                            pengeluaran += document.get("amount").toString().toInt()
-//                        }
-//                        else{
-//                            pemasukan += document.get("amount").toString().toInt()
-//                        }
-//                    }
-//                    recyclerview.layoutManager = LinearLayoutManager(view?.context)
-//                    recyclerview.adapter = adapterlog()
-//
-//                    if (val_pengeluaran != null) {
-//                        val_pengeluaran.text = pengeluaran.toString()
-//                    }
-//                    if (val_pemasukan != null) {
-//                        val_pemasukan.text = pemasukan.toString()
-//                    }
-//                }
-//                else{
-//                    for (document in result) {
-//                        if(document.get("date") == filter)
-//                        {
-//                            listLogs.add(log(document.get("name").toString(), document.get("date").toString(),
-//                                document.get("amount").toString(), document.get("category").toString(), document.get("type").toString(), document.get("id").toString()))
-//                            if(document.get("type").toString() == "false")
-//                            {
-//                                pengeluaran += document.get("amount").toString().toInt()
-//                            }
-//                            else{
-//                                pemasukan += document.get("amount").toString().toInt()
-//                            }
-//                        }
-//                    }
-//                    recyclerview.layoutManager = LinearLayoutManager(view?.context)
-//                    recyclerview.adapter = adapterlog()
-//
-//                    if (val_pengeluaran != null) {
-//                        val_pengeluaran.text = pengeluaran.toString()
-//                    }
-//                    if (val_pemasukan != null) {
-//                        val_pemasukan.text = pemasukan.toString()
-//                    }
-//                }
-//            }
-//            .addOnFailureListener { exception ->
-//                Log.w(ContentValues.TAG, "Error getting documents.", exception)
-//            }
-//    }
+    private fun getData(recyclerview:RecyclerView){
+
+        db.collection("dbJobs")
+            .get()
+            .addOnSuccessListener { result ->
+                listjobs.clear()
+                for (document in result) {
+                    listjobs.add(jobItem(document.get("id").toString(), document.get("title").toString(), document.get("description").toString()))
+//                    Log.w(ContentValues.TAG, document.get("id").toString())
+                }
+                recyclerview.layoutManager = LinearLayoutManager(view?.context)
+                recyclerview.adapter = adapterJobs()
+            }
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents.", exception)
+            }
+    }
 
     companion object {
         /**
