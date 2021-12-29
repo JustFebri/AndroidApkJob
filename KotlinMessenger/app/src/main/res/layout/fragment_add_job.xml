@@ -21,21 +21,14 @@
 
         <TextView
             android:id="@+id/textView18"
-            android:layout_width="wrap_content"
+            android:layout_width="204dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Add Job"
+            android:text="Job Vacancy"
             android:textColor="#E1E1E0"
             android:textSize="34sp" />
 
-        <Button
-            android:id="@+id/addJobButton"
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="add"
-            android:textColor="#FFFFFF"
-            tools:visibility="visible" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -50,12 +43,13 @@
         <TextView
             android:id="@+id/textView16"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="wrap_content"
             android:text="Job Title"
+            android:layout_marginTop="16dp"
             android:textColor="#1F5A53"
             android:textStyle="bold"
             android:fontFamily="sans-serif"
-            android:textSize="24sp" />
+            android:textSize="32sp" />
 
         <EditText
             android:id="@+id/jobtitle"
@@ -74,9 +68,10 @@
             android:textStyle="bold"
             android:fontFamily="sans-serif"
             android:textColor="#1F5A53"
-            android:layout_height="36dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="Job Description"
-            android:textSize="24sp" />
+            android:textSize="32sp" />
 
         <EditText
             android:id="@+id/description"
@@ -92,17 +87,28 @@
         <TextView
             android:id="@+id/textView17"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="#1F5A53"
             android:fontFamily="sans-serif"
+            android:layout_marginTop="16dp"
             android:text="Category"
-            android:textSize="24sp" />
+            android:textSize="32sp" />
 
         <Spinner
             android:id="@+id/categoryspinner"
             android:layout_width="match_parent"
+            android:background=""
             android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/addJobButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="add job vacancy"
+            android:textColor="#FFFFFF"
+            tools:visibility="visible" />
 
     </LinearLayout>
 

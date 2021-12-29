@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#EFD572"
     android:padding="16sp"
     tools:context=".rate">
 
@@ -12,6 +13,9 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:textColor="#1F5A53"
         android:text="Job Name"
         android:textSize="34sp" />
 
@@ -19,6 +23,10 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:paddingTop="8dp"
+        android:fontFamily="sans-serif"
+        android:textColor="#1F5A53"
         android:text="Employee Name"
         android:textSize="30sp" />
 
@@ -26,6 +34,10 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="8sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:textColor="#1F5A53"
         android:text="Date Time - Finished"
         android:textSize="26sp"/>
 
@@ -33,12 +45,14 @@
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_gravity="center"
         android:numStars="5" />
 
     <Button
         android:id="@+id/rateButton"
         android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
         android:layout_height="wrap_content"
         android:text="confirm" />
 </LinearLayout>
