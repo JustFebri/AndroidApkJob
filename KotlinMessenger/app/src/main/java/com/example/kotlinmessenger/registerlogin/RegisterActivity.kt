@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import com.example.kotlinmessenger.HomeActivity
 import com.example.kotlinmessenger.R
@@ -28,6 +30,13 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         register_button_register.setOnClickListener {
+            pgback.bringToFront()
+            pgback.visibility = View.VISIBLE
+            progbar.visibility = View.VISIBLE
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+            )
+
             performRegister()
         }
 
@@ -73,9 +82,15 @@ class RegisterActivity : AppCompatActivity() {
     private fun performRegister() {
         val email = email_edittext_register.text.toString()
         val password = password_edittext_register.text.toString()
+        val username = username_edittext_register.text.toString()
 
-        if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Please enter text in email/pw", Toast.LENGTH_SHORT).show()
+        if (email.isEmpty() || password.isEmpty() || username.isEmpty()) {
+            Toast.makeText(this, "Please enter text in email/password/username", Toast.LENGTH_SHORT).show()
+            pgback.visibility = View.GONE
+            progbar.visibility = View.GONE
+            window.clearFlags(
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+            )
             return
         }
 
@@ -94,6 +109,11 @@ class RegisterActivity : AppCompatActivity() {
             .addOnFailureListener{
                 Log.d(TAG, "Failed to create user: ${it.message}")
                 Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_SHORT).show()
+                pgback.visibility = View.GONE
+                progbar.visibility = View.GONE
+                window.clearFlags(
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+                )
             }
     }
 
@@ -115,6 +135,11 @@ class RegisterActivity : AppCompatActivity() {
             }
             .addOnFailureListener {
                 Log.d(TAG, "Failed to upload image to storage: ${it.message}")
+                pgback.visibility = View.GONE
+                progbar.visibility = View.GONE
+                window.clearFlags(
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+                )
             }
     }
 
@@ -127,6 +152,12 @@ class RegisterActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 Log.d(TAG, "Finally we saved the user to Firebase Database")
 
+                pgback.visibility = View.GONE
+                progbar.visibility = View.GONE
+                window.clearFlags(
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+                )
+
                 val intent = Intent(this, HomeActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
@@ -134,6 +165,12 @@ class RegisterActivity : AppCompatActivity() {
             }
             .addOnFailureListener {
                 Log.d(TAG, "Failed to set value to database: ${it.message}")
+
+                pgback.visibility = View.GONE
+                progbar.visibility = View.GONE
+                window.clearFlags(
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+                )
             }
     }
 }

@@ -8,6 +8,14 @@
     android:background="#EFD572"
     tools:context=".HomeActivity">
 
+  <ProgressBar
+      android:id="@+id/progbar"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
   <FrameLayout
       android:id="@+id/myframe"
@@ -32,17 +40,18 @@
 
   <de.hdodenhof.circleimageview.CircleImageView
       android:id="@+id/profimg"
-      android:layout_width="50dp"
-      android:layout_height="50dp"
+      android:layout_width="55dp"
+      android:layout_height="55dp"
       android:layout_marginStart="16dp"
       android:layout_marginTop="16dp"
       android:layout_weight="4"
       android:background="@null"
       app:civ_border_color="#FF000000"
       app:civ_border_width="2dp"
+      app:layout_constraintBottom_toBottomOf="@+id/progbar"
+      app:layout_constraintEnd_toEndOf="@+id/progbar"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      android:src="@drawable/pic"/>
+      app:layout_constraintTop_toTopOf="parent" />
 
   <SearchView
       android:layout_width="250dp"

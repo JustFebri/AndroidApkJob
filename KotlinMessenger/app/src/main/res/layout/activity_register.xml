@@ -8,6 +8,23 @@
     android:background="#EFD572"
     tools:context=".registerlogin.RegisterActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pgback"
+        android:background="#808080"
+        android:alpha="0.8"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/progbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
     <EditText
         android:id="@+id/username_edittext_register"
         android:layout_width="0dp"
@@ -70,6 +87,7 @@
 
     <Button
         android:id="@+id/register_button_register"
+        android:stateListAnimator="@null"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -113,7 +131,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:stateListAnimator="@null"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/selectphoto_imageview_register"

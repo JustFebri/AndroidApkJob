@@ -7,6 +7,22 @@
     android:layout_height="match_parent"
     android:background="#EFD572">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pgback"
+        android:background="#808080"
+        android:alpha="0.8"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/progbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:visibility="gone"/>
+    </FrameLayout>
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -58,7 +74,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/password_edittext_login"
         app:layout_constraintStart_toStartOf="@+id/password_edittext_login"
-        app:layout_constraintTop_toBottomOf="@+id/password_edittext_login" />
+        app:layout_constraintTop_toBottomOf="@+id/password_edittext_login"
+        android:stateListAnimator="@null"/>
 
     <TextView
         android:id="@+id/back_to_register_textview"
