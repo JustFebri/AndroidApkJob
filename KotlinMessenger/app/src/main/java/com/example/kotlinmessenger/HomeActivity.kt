@@ -9,12 +9,15 @@ import com.example.kotlinmessenger.messages.LatestMessagesActivity
 import com.example.kotlinmessenger.messages.NewMessageActivity
 import com.example.kotlinmessenger.registerlogin.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+
 
         verifyUserIsLoggedIn()
 
@@ -44,7 +47,6 @@ class HomeActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.nav_menu, menu)
