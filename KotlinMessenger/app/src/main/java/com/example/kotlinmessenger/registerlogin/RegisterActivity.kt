@@ -100,10 +100,8 @@ class RegisterActivity : AppCompatActivity() {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (!it.isSuccessful) return@addOnCompleteListener
-
                 // else if successful
                 Log.d(TAG, "Successfully created user with uid: ${it.result?.user?.uid}")
-
                 uploadImageToFirebaseStorage()
             }
             .addOnFailureListener{
@@ -145,9 +143,9 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun saveUserToFirebaseDatabase(profileImageUrl: String) {
         val uid = FirebaseAuth.getInstance().uid ?: ""
-        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+        val ref = FirebaseDatabase.getInstance().getReference("/users").child(uid)
 
-        val user = User(uid, username_edittext_register.text.toString(), country_edittext_register.text.toString(), profileImageUrl)
+        val user = User(uid, username_edittext_register.text.toString(), country_edittext_register.text.toString(), profileImageUrl,"0","0","0","0")
         ref.setValue(user)
             .addOnSuccessListener {
                 Log.d(TAG, "Finally we saved the user to Firebase Database")
