@@ -4,6 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/activity_home.xml" value="0.19895833333333332" />
+        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/activity_login.xml" value="0.1953125" />
+        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/activity_register.xml" value="0.1953125" />
+        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/fragment_add_job.xml" value="0.1953125" />
+        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/fragment_job.xml" value="0.1953125" />
+        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/item_jobs.xml" value="0.1953125" />
+        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/latest_message_row.xml" value="0.1953125" />
+        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/user_row_new_message.xml" value="0.1953125" />
         <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable-v24/box.xml" value="0.12407407407407407" />
         <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable-v24/circleadd.xml" value="0.37864583333333335" />
         <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable-v24/home.xml" value="0.12407407407407407" />

@@ -5,18 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#EFD572"
     tools:context=".addJob">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#9001F6"
+        android:background="#32776E"
         android:orientation="horizontal"
         android:padding="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:backgroundTint="#6200FF">
+        tools:backgroundTint="#32776E">
 
         <TextView
             android:id="@+id/textView18"
@@ -24,7 +25,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Add Job"
-            android:textColor="#FFFFFF"
+            android:textColor="#E1E1E0"
             android:textSize="34sp" />
 
         <Button
@@ -32,7 +33,6 @@
             android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:backgroundTint="#00B2FF"
             android:text="add"
             android:textColor="#FFFFFF"
             tools:visibility="visible" />
@@ -52,11 +52,17 @@
             android:layout_width="match_parent"
             android:layout_height="36dp"
             android:text="Job Title"
+            android:textColor="#1F5A53"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
             android:textSize="24sp" />
 
         <EditText
             android:id="@+id/jobtitle2"
             android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:textColor="#32776E"
+            android:fontFamily="sans-serif"
             android:layout_height="58dp"
             android:ems="10"
             android:inputType="textPersonName"
@@ -65,6 +71,9 @@
         <TextView
             android:id="@+id/textView15"
             android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:textColor="#1F5A53"
             android:layout_height="36dp"
             android:text="Job Description"
             android:textSize="24sp" />
@@ -73,6 +82,9 @@
             android:id="@+id/jobtitle"
             android:layout_width="match_parent"
             android:layout_height="58dp"
+            android:textStyle="bold"
+            android:textColor="#32776E"
+            android:fontFamily="sans-serif"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Description" />
@@ -81,6 +93,9 @@
             android:id="@+id/textView17"
             android:layout_width="match_parent"
             android:layout_height="36dp"
+            android:textStyle="bold"
+            android:textColor="#1F5A53"
+            android:fontFamily="sans-serif"
             android:text="Category"
             android:textSize="24sp" />
 
