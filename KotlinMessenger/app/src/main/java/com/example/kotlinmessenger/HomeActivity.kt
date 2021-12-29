@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.kotlinmessenger.messages.LatestMessagesActivity
 import com.example.kotlinmessenger.messages.NewMessageActivity
 import com.example.kotlinmessenger.models.User
@@ -19,7 +21,13 @@ import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.user_row_new_message.view.*
-
+fun changeFragment(fcId:Int, destinationFragment: Fragment, parentFragmentManager: FragmentManager) {
+    parentFragmentManager.beginTransaction().apply {
+        replace(fcId, destinationFragment, destinationFragment::class.java.simpleName)
+        addToBackStack(null)
+        commit()
+    }
+}
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,12 +56,8 @@ class HomeActivity : AppCompatActivity() {
 
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
-                R.id.network -> {
-                    // Respond to navigation item 1 click
-                    true
-                }
-                R.id.item2 -> {
-                    // Respond to navigation item 2 click
+                R.id.post -> {
+                    changeFragment(R.id.myframe, addJob(), supportFragmentManager)
                     true
                 }
                 else -> false
