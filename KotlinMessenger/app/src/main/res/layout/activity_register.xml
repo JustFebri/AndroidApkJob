@@ -87,15 +87,17 @@
 
     <Button
         android:id="@+id/register_button_register"
-        android:stateListAnimator="@null"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/rounded_button"
+        android:stateListAnimator="@null"
         android:text="Register"
+
         android:textColor="@android:color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/password_edittext_register"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/password_edittext_register"
         app:layout_constraintTop_toBottomOf="@+id/country_edittext_register" />
 
