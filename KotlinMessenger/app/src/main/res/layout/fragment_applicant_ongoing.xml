@@ -15,7 +15,7 @@
             android:id="@+id/tvaCompany"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="sans-serif"
             android:paddingLeft="8dp"
             android:text="Company"
@@ -38,71 +38,6 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvaCompany" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="94dp"
-            android:layout_height="23dp"
-            android:layout_marginStart="244dp"
-            android:layout_marginTop="100dp"
-            android:fontFamily="sans-serif"
-            android:paddingLeft="8dp"
-            android:text="Employee"
-            android:textColor="#1F5A53"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvaCompany" />
-
-        <ImageView
-            android:id="@+id/ivaCompany"
-            android:layout_width="103dp"
-            android:layout_height="101dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="48dp"
-            android:src="@drawable/ic_baseline_not_interested_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-        <ImageView
-            android:id="@+id/ivaAplicant"
-            android:layout_width="103dp"
-            android:layout_height="101dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="44dp"
-            android:src="@drawable/ic_baseline_not_interested_24"
-            app:layout_constraintStart_toEndOf="@+id/ivaCompany"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="131dp"
-            android:layout_height="23dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="100dp"
-            android:fontFamily="sans-serif"
-            android:paddingLeft="8dp"
-            android:text="Employer"
-            android:textColor="#1F5A53"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvaCompany" />
-
-        <Button
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="248dp"
-            android:layout_marginEnd="55dp"
-            android:fontFamily="sans-serif"
-            android:text="finish"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvaTitle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
