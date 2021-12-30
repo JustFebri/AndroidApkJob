@@ -28,6 +28,15 @@
             android:textColor="#E1E1E0"
             android:textSize="34sp" />
 
+        <Button
+            android:id="@+id/addJobButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="add vacancy"
+            android:textColor="#FFFFFF"
+            tools:visibility="visible" />
+
 
     </LinearLayout>
 
@@ -100,15 +109,6 @@
             android:layout_width="match_parent"
             android:background=""
             android:layout_height="50dp" />
-
-        <Button
-            android:id="@+id/addJobButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="add job vacancy"
-            android:textColor="#FFFFFF"
-            tools:visibility="visible" />
 
     </LinearLayout>
 
