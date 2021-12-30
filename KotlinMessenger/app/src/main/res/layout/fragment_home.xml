@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:hint="Recently Hiring"
         android:textStyle="bold"
+            android:paddingLeft="8dp"
         android:fontFamily="sans-serif"
             android:textColor="#1F5A53"
             android:background="#EACB56"
