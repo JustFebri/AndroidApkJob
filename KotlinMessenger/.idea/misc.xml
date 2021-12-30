@@ -3,29 +3,38 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/activity_add_jobs.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/activity_chat_log.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/activity_home.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/activity_latest_messages.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/activity_login.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/activity_new_message.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/activity_rate.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/activity_register.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/chat_from_row.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/chat_to_row.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/fragment_add_job.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/fragment_home.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/fragment_job.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/item_jobs.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/latest_message_row.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/user_row_new_message.xml" value="0.3625" />
-        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.37447916666666664" />
+        <entry key="..\:/ANDROID/AndroidApkJobFX/KotlinMessenger/app/src/main/res/layout/activity_home.xml" value="0.19895833333333332" />
         <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable-v24/box.xml" value="0.12407407407407407" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable-v24/circleadd.xml" value="0.37864583333333335" />
         <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable-v24/home.xml" value="0.12407407407407407" />
-        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/activity_home.xml" value="0.3484375" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable-v24/ic_baseline_business_center_24.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable-v24/ic_baseline_chat_24.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable-v24/notif.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable-v24/superv.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable/cc.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable/ic_baseline_chat_2_24.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable/ic_baseline_content_paste_search_24.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable/ic_baseline_work_24.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable/ic_launcher_background.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable/ic_twotone_edit_24.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable/rounded_button.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable/rounded_edittext_register_login.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/drawable/rounded_select_photo_button.xml" value="0.37864583333333335" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/activity_edt_prof.xml" value="0.3625" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/activity_home.xml" value="0.3625" />
         <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/activity_latest_messages.xml" value="0.3625" />
-        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/activity_login.xml" value="0.203125" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/activity_register.xml" value="0.3625" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/fragment_add_job.xml" value="0.3625" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/fragment_job.xml" value="0.3625" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/fragment_job_nav.xml" value="0.3625" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/item_jobs.xml" value="0.3625" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/latest_message_row.xml" value="0.3625" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/user_row_new_message.xml" value="0.3625" />
         <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/menu/my_navigation_items.xml" value="0.1" />
+        <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/menu/nav_job.xml" value="0.3625" />
         <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/menu/nav_menu.xml" value="0.3625" />
         <entry key="..\:/AndroidKul/AndroidApkJob/KotlinMessenger/app/src/main/res/menu/nav_menu_chat.xml" value="0.37447916666666664" />
         <entry key="..\:/AndroidStudioProjects/KotlinMessenger/app/src/main/res/drawable/latest_message_row.xml" value="0.12962962962962962" />
@@ -50,8 +59,7 @@
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/activity_rate.xml" value="0.13360507246376813" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/activity_register.xml" value="0.23385416666666667" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/fragment_add_job.xml" value="0.29347826086956524" />
-        <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/fragment_job.xml" value="0.22" />
-        <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/item_jobs.xml" value="0.17119565217391305" />
+        <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/fragment_job.xml" value="0.35260416666666666" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/menu/my_navigation_items.xml" value="0.36666666666666664" />
       </map>
     </option>
