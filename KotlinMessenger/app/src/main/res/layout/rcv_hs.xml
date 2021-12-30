@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/tvt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -24,8 +24,9 @@
         android:layout_marginBottom="16dp"
         android:text="Description"
         android:textSize="16sp"
+        android:id="@+id/tvd"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintStart_toStartOf="@+id/tvt"
+        app:layout_constraintTop_toBottomOf="@+id/tvt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
