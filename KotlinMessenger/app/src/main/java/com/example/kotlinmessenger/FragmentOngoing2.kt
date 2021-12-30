@@ -1,10 +1,19 @@
 package com.example.kotlinmessenger
 
+import android.content.ContentValues
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlinmessenger.jobs.adapterJobs
+import com.example.kotlinmessenger.jobs.jobItem
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +29,7 @@ class FragmentOngoing2 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +45,39 @@ class FragmentOngoing2 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_ongoing2, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val recyclerview : RecyclerView = view.findViewById((R.id.ongorc2))
+        getData(recyclerview)
+    }
+
+    private fun getData(recyclerview: RecyclerView){
+        val uid = FirebaseAuth.getInstance().uid
+        db.collection("dbJobs")
+            .whereEqualTo("worker", uid)
+            .get()
+            .addOnSuccessListener { result ->
+                listjobs.clear()
+                for (document in result) {
+                    if(document.get("status").toString() == "finished")
+                    {
+                        listjobs.add(
+                            jobItem(document.get("id").toString(),
+                            document.get("title").toString(),
+                            document.get("description").toString(),
+                            document.get("recruiterId").toString(), "pending","")
+                        )
+                    }
+//                    Log.w(ContentValues.TAG, document.get("id").toString())
+                }
+                recyclerview.layoutManager = LinearLayoutManager(view?.context)
+                recyclerview.adapter = adapterJobs(parentFragmentManager, listjobs, false)
+            }
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents.", exception)
+            }
     }
 
     companion object {

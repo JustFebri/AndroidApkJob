@@ -6,8 +6,8 @@
         android:title="Ongoing Job" />
 
     <item
-        android:id="@+id/PostJob"
+        android:id="@+id/ongoingwork"
         android:icon="@drawable/ic_baseline_contact_mail_24"
-        android:title="Job Regist List" />
+        android:title="Ongoing Work" />
 
 </menu>
