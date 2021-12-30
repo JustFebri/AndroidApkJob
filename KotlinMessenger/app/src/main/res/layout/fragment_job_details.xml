@@ -10,6 +10,16 @@
 
 
     <TextView
+        android:id="@+id/JobGiver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Job Giver/Company"
+        android:textColor="#1F5A53"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/dt_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +27,7 @@
         android:fontFamily="sans-serif"
         android:textStyle="bold"
         android:text="Title"
-        android:textSize="40sp" />
+        android:textSize="26sp" />
 
     <TextView
         android:id="@+id/dt_description"
@@ -27,17 +37,7 @@
         android:textStyle="bold"
         android:fontFamily="sans-serif"
         android:text="Description"
-        android:textSize="32sp" />
-
-    <TextView
-        android:id="@+id/JobGiver"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#1F5A53"
-        android:text="Job Giver/Company"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif"
-        android:textSize="32sp" />
+        android:textSize="26sp" />
 
     <Button
         android:id="@+id/dt_apply"
