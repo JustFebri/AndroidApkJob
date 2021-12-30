@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/recentJob"
-        android:icon="@drawable/ic_baseline_access_time_filled_24"
-        android:title="Recent Job" />
-    <item
         android:id="@+id/applyJob"
         android:icon="@drawable/ic_baseline_assignment_24"
         android:title="Apply Job" />
+    <item
+        android:id="@+id/recentJob"
+        android:icon="@drawable/ic_baseline_access_time_filled_24"
+        android:title="Recent Job" />
+
 </menu>
