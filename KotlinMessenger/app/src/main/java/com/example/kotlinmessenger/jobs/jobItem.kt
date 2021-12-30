@@ -6,5 +6,5 @@ class jobItem (
     var description : String,
     var recruiterId : String,
     var status : String,
-    var worker : String
+    var worker : String,
 )
