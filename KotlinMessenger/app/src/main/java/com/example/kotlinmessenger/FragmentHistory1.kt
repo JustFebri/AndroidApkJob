@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmessenger.jobs.adapterJobs
 import com.example.kotlinmessenger.jobs.jobItem
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -26,7 +25,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [FragmentOngoing1.newInstance] factory method to
  * create an instance of this fragment.
  */
-class FragmentOngoing1 : Fragment() {
+class FragmentHistory1 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -45,13 +44,14 @@ class FragmentOngoing1 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ongoing1, container, false)
+        return inflater.inflate(R.layout.fragment_history1, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val recyclerview : RecyclerView = view.findViewById((R.id.ongorc1))
-        getData(recyclerview)
+
+//        val recyclerview : RecyclerView = view.findViewById((R.id.ongorc1))
+//        getData(recyclerview)
     }
 
     private fun getData(recyclerview: RecyclerView){
@@ -93,7 +93,7 @@ class FragmentOngoing1 : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            FragmentOngoing1().apply {
+            FragmentHistory1().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
