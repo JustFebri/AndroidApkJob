@@ -4,4 +4,5 @@ class jobItem (
     val id : String,
     var title : String,
     var description : String,
+    var recruiterId : String,
 )

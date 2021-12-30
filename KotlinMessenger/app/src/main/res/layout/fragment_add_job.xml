@@ -107,7 +107,6 @@
         <Spinner
             android:id="@+id/categoryspinner"
             android:layout_width="match_parent"
-            android:background=""
             android:layout_height="50dp" />
 
     </LinearLayout>

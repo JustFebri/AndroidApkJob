@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmessenger.jobs.adapterJobs
 import com.example.kotlinmessenger.jobs.jobItem
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
@@ -60,17 +61,19 @@ class job : Fragment() {
     }
 
     private fun getData(recyclerview:RecyclerView){
-
+        val uid = FirebaseAuth.getInstance().uid
         db.collection("dbJobs")
             .get()
             .addOnSuccessListener { result ->
                 listjobs.clear()
                 for (document in result) {
-                    listjobs.add(jobItem(document.get("id").toString(), document.get("title").toString(), document.get("description").toString()))
+                    listjobs.add(jobItem(document.get("id").toString(),
+                        document.get("title").toString(),
+                        document.get("description").toString(), uid.toString()))
 //                    Log.w(ContentValues.TAG, document.get("id").toString())
                 }
                 recyclerview.layoutManager = LinearLayoutManager(view?.context)
-                recyclerview.adapter = adapterJobs()
+                recyclerview.adapter = adapterJobs(parentFragmentManager)
             }
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)
