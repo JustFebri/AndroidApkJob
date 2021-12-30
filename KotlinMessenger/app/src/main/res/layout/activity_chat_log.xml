@@ -9,7 +9,7 @@
     android:background="#32776E">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/edt_prof_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="276dp"
