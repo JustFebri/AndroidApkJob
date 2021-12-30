@@ -25,6 +25,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ApplicantOngoingFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
 class ApplicantOngoingFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -48,31 +49,8 @@ class ApplicantOngoingFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val recyclerview : RecyclerView = view.findViewById((R.id.rvJobs))
-        getData(recyclerview)
 
-    }
 
-    private fun getData(recyclerview: RecyclerView){
-        val uid = FirebaseAuth.getInstance().uid
-        db.collection("dbJobs")
-            .whereEqualTo("status", "ongoing")
-            .get()
-            .addOnSuccessListener { result ->
-                listjobs.clear()
-                for (document in result) {
-                    if(document.get("worker").toString() == uid)
-                    {
-                       
-                    }
-//                    Log.w(ContentValues.TAG, document.get("id").toString())
-                }
-                recyclerview.layoutManager = LinearLayoutManager(view?.context)
-                recyclerview.adapter = adapterJobs(parentFragmentManager, listjobs, false)
-            }
-            .addOnFailureListener { exception ->
-                Log.w(ContentValues.TAG, "Error getting documents.", exception)
-            }
     }
 
     companion object {
