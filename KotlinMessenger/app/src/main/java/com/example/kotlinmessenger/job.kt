@@ -68,12 +68,12 @@ class job : Fragment() {
             .addOnSuccessListener { result ->
                 listjobs.clear()
                 for (document in result) {
-                    if(document.get("active").toString().toBoolean())
+                    if(document.get("status").toString() == "pending")
                     {
                         listjobs.add(jobItem(document.get("id").toString(),
                             document.get("title").toString(),
                             document.get("description").toString(),
-                            document.get("recruiterId").toString(), true))
+                            document.get("recruiterId").toString(), "pending",""))
                     }
 //                    Log.w(ContentValues.TAG, document.get("id").toString())
                 }
