@@ -19,19 +19,24 @@
             <TextView
                 android:id="@+id/applicant_name"
                 android:layout_width="match_parent"
-                android:paddingLeft="8dp"
                 android:layout_height="wrap_content"
-                android:textColor="#1F5A53"
+                android:fontFamily="sans-serif"
+                android:paddingLeft="8dp"
                 android:text="Name"
-                android:textSize="34sp" />
+                android:textColor="#1F5A53"
+                android:textSize="36sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/applicant_email"
                 android:layout_width="match_parent"
-            android:textColor="#1F5A53"
-                android:paddingLeft="8dp"
                 android:layout_height="wrap_content"
-                android:text="email@email.com" />
+                android:fontFamily="sans-serif"
+                android:paddingLeft="8dp"
+                android:text="email@email.com"
+                android:textColor="#1F5A53"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <ImageButton
