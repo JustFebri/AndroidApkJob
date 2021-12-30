@@ -7,11 +7,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmessenger.jobs.adapterJobs
 import com.example.kotlinmessenger.jobs.jobItem
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -49,8 +52,48 @@ class ApplicantOngoingFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val finish : Button = view.findViewById(R.id.finishJob)
+        val uid = FirebaseAuth.getInstance().uid
+        val jobtitle : TextView = view.findViewById(R.id.tvcNama)
+        var cur = 0
 
+        val db : FirebaseFirestore = FirebaseFirestore.getInstance()
 
+        db.collection("dbJobs")
+            .whereEqualTo("recruiterId", uid)
+            .get()
+            .addOnSuccessListener { result ->
+                listjobs.clear()
+                for (document in result) {
+                    if(document.get("status").toString() == "ongoing")
+                    {
+                        listjobs.add(
+                            jobItem(document.get("id").toString(),
+                                document.get("title").toString(),
+                                document.get("description").toString(),
+                                document.get("recruiterId").toString(),
+                                "ongoing",
+                                document.get("worker").toString())
+                        )
+                    }
+//                    Log.w(ContentValues.TAG, document.get("id").toString())
+                }
+                if(listjobs.size <= 0)
+                {
+                    jobtitle.text = "No Job Ongoing"
+                    finish.visibility = View.INVISIBLE
+                }
+                else
+                {
+                    jobtitle.text = listjobs[cur].title
+                    finish.visibility = View.VISIBLE
+                }
+
+            }
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents.", exception)
+            }
     }
 
     companion object {
