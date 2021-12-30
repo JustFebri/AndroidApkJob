@@ -23,7 +23,7 @@
         </com.google.android.material.bottomnavigation.BottomNavigationView>
 
         <FrameLayout
-            android:id="@+id/jobsFrameLayout"
+            android:id="@+id/HSFrameLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
