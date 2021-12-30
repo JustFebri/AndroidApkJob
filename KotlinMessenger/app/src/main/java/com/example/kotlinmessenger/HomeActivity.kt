@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_edt_prof.*
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.user_row_new_message.view.*
 fun changeFragment(fcId:Int, destinationFragment: Fragment, parentFragmentManager: FragmentManager) {
@@ -70,7 +71,8 @@ class HomeActivity : AppCompatActivity() {
         }
 
         profimg.setOnClickListener {
-
+            val intent = Intent(this, edt_prof::class.java)
+            startActivity(intent)
         }
     }
 
