@@ -46,12 +46,12 @@ class jobNav : Fragment() {
         topjobNav.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.browsejob -> {
-                    changeFragment(R.id.jobsFrameLayout, myJobs(), parentFragmentManager)
+                    changeFragment(R.id.jobsFrameLayout, job(), parentFragmentManager)
                     true
                 }
 
                 R.id.myjob  -> {
-                    changeFragment(R.id.jobsFrameLayout, job(), parentFragmentManager)
+                    changeFragment(R.id.jobsFrameLayout, myJobs(), parentFragmentManager)
                     true
                 }
                 else -> false

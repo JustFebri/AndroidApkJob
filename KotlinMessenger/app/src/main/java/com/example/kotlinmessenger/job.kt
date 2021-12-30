@@ -68,14 +68,17 @@ class job : Fragment() {
             .addOnSuccessListener { result ->
                 listjobs.clear()
                 for (document in result) {
-                    listjobs.add(jobItem(document.get("id").toString(),
-                        document.get("title").toString(),
-                        document.get("description").toString(),
-                        document.get("recruiterId").toString()))
+                    if(document.get("active").toString().toBoolean())
+                    {
+                        listjobs.add(jobItem(document.get("id").toString(),
+                            document.get("title").toString(),
+                            document.get("description").toString(),
+                            document.get("recruiterId").toString(), true))
+                    }
 //                    Log.w(ContentValues.TAG, document.get("id").toString())
                 }
                 recyclerview.layoutManager = LinearLayoutManager(view?.context)
-                recyclerview.adapter = adapterJobs(parentFragmentManager, listjobs)
+                recyclerview.adapter = adapterJobs(parentFragmentManager, listjobs, false)
             }
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)

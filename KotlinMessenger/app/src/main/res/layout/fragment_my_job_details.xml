@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dt_acceptButton"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFD572"
+    android:orientation="vertical"
+    tools:context=".job_details">
+
+
+    <TextView
+        android:id="@+id/mjdt_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#1F5A53"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:text="Title"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/mjdt_description"
+        android:layout_width="match_parent"
+        android:textColor="#1F5A53"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:text="Description"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/mjdt_JobGiver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#1F5A53"
+        android:text="Job Giver/Company"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/mjdt_applicants"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Applicant"
+        android:textSize="34sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvJobApplicant"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

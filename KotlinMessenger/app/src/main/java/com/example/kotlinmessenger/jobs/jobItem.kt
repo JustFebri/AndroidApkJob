@@ -5,4 +5,5 @@ class jobItem (
     var title : String,
     var description : String,
     var recruiterId : String,
+    var active : Boolean,
 )

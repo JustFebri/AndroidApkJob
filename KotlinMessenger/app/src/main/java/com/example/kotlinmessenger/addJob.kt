@@ -61,7 +61,7 @@ class addJob : Fragment() {
             val id = nowTime.timeInMillis.hashCode().toString()
             val db : FirebaseFirestore = FirebaseFirestore.getInstance()
             val uid = FirebaseAuth.getInstance().uid.toString()
-            val newData  = jobItem(id, title, description, uid)
+            val newData  = jobItem(id, title, description, uid, true)
 
             db.collection("dbJobs").document(id)
                 .set(newData)

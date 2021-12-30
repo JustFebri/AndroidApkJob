@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmessenger.jobs.adapterJobs
+import com.example.kotlinmessenger.jobs.applicantion
 import com.example.kotlinmessenger.jobs.jobItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -22,11 +23,11 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [myJobs.newInstance] factory method to
+ * Use the [myJobDetails.newInstance] factory method to
  * create an instance of this fragment.
  */
-val myJobsList = arrayListOf<jobItem>()
-class myJobs : Fragment() {
+var applicantList = arrayListOf<applicantion>()
+class myJobDetails : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -45,32 +46,32 @@ class myJobs : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_jobs, container, false)
+        return inflater.inflate(R.layout.fragment_my_job_details, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val recyclerview : RecyclerView = view.findViewById((R.id.rvJobs))
+        val recyclerview : RecyclerView = view.findViewById((R.id.rvJobApplicant))
         getData(recyclerview)
+
     }
 
     private fun getData(recyclerview: RecyclerView){
         val uid = FirebaseAuth.getInstance().uid
-        Log.w("UID", uid.toString())
-        db.collection("dbJobs")
+
+        db.collection("dbApplications")
             .whereEqualTo("recruiterId", uid)
             .get()
             .addOnSuccessListener { result ->
-                myJobsList.clear()
+                applicantList.clear()
                 for (document in result) {
-                    myJobsList.add(jobItem(document.get("id").toString(),
-                        document.get("title").toString(),
-                        document.get("description").toString(),
-                        document.get("recruiterId").toString(), true))
-//                    Log.w(ContentValues.TAG, document.get("id").toString())
+                    applicantList.add(applicantion(document.get("id").toString(),
+                        document.get("applicantId").toString(),
+                        document.get("recruiterId").toString()))
+                    Log.w("Testing", document.get("applicantId").toString())
                 }
+
                 recyclerview.layoutManager = LinearLayoutManager(view?.context)
-                recyclerview.adapter = adapterJobs(parentFragmentManager, myJobsList, true)
+                recyclerview.adapter = adapterApplicants(parentFragmentManager, applicantList)
             }
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)
@@ -84,12 +85,12 @@ class myJobs : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment myJobs.
+         * @return A new instance of fragment myJobDetails.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            myJobs().apply {
+            myJobDetails().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

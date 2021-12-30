@@ -74,6 +74,16 @@ class job_details : Fragment() {
                 .addOnFailureListener{
                     Log.d("Firebase", it.message .toString())
                 }
+
+            db.collection("dbHistory").document(id)
+                .set(newData)
+                .addOnSuccessListener {
+//                    changeFragment(R.id.myframe, HomeActivity(), parentFragmentManager)
+                    Log.d("Firebase", "Add data success")
+                }
+                .addOnFailureListener{
+                    Log.d("Firebase", it.message .toString())
+                }
         }
         dt_title.text = jobtitle
         dt_description.text = jobdesc

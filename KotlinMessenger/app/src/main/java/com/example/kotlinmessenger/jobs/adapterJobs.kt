@@ -7,13 +7,11 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlinmessenger.R
-import com.example.kotlinmessenger.changeFragment
-import com.example.kotlinmessenger.job_details
-import com.example.kotlinmessenger.listjobs
+import com.example.kotlinmessenger.*
 import com.google.firebase.firestore.FirebaseFirestore
 
-class adapterJobs (var parentFragmentManager : FragmentManager, val arrayAdapter: ArrayList<jobItem>) : RecyclerView.Adapter<adapterJobs.ListViewHolder>()
+class adapterJobs (var parentFragmentManager : FragmentManager,
+                   val arrayAdapter: ArrayList<jobItem>, val isMine : Boolean) : RecyclerView.Adapter<adapterJobs.ListViewHolder>()
 {
     inner class  ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var _title : TextView = itemView.findViewById(R.id.rv_jobtitle)
@@ -28,7 +26,13 @@ class adapterJobs (var parentFragmentManager : FragmentManager, val arrayAdapter
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        browseJobs(position, holder)
+        if(!isMine) {
+            browseJobs(position, holder)
+        }
+        else
+        {
+            myJobs(position, holder)
+        }
     }
 
     fun browseJobs(position: Int, holder: ListViewHolder)
@@ -54,7 +58,23 @@ class adapterJobs (var parentFragmentManager : FragmentManager, val arrayAdapter
 
     fun myJobs(position: Int, holder: ListViewHolder)
     {
+        var job = arrayAdapter[position]
+        val db = FirebaseFirestore.getInstance()
 
+        holder._title.setText(job.title)
+        holder._description.setText(job.description)
+
+        holder._detailsButton.setOnClickListener {
+            var mBundle = Bundle()
+            mBundle.putString("recruiterId", job.recruiterId)
+            mBundle.putString("title", job.title)
+            mBundle.putString("description", job.description)
+
+            val jobDetails = myJobDetails()
+            jobDetails.arguments = mBundle
+
+            changeFragment(R.id.myframe, jobDetails, parentFragmentManager)
+        }
     }
 
 

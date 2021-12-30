@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="274dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/applicant_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/applicant_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="email@email.com" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/applicantDetails"
+            android:layout_width="57dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_baseline_search_24" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
