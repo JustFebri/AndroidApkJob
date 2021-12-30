@@ -12,15 +12,15 @@
         android:orientation="vertical">
 
         <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Recently Hiring"
-        android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:textSize="24sp"
             android:paddingLeft="8dp"
-        android:fontFamily="sans-serif"
             android:textColor="#1F5A53"
             android:background="#EACB56"
-        android:textSize="24sp" />
+            android:text="Recent Activity"/>
 
         
 

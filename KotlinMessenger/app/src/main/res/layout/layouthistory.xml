@@ -29,7 +29,7 @@
         android:paddingLeft="8dp"
         android:text="Job Title"
         android:textColor="#1F5A53"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvhCompany" />
