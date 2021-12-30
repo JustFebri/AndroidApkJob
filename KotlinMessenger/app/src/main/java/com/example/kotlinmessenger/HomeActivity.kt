@@ -63,7 +63,8 @@ class HomeActivity : AppCompatActivity() {
                 }
 
                 R.id.jobs -> {
-                    changeFragment(R.id.myframe, job(), supportFragmentManager)
+                    changeFragment(R.id.myframe, jobNav(), supportFragmentManager)
+//                    changeFragment(R.id.myframe, job(), supportFragmentManager)
                     true
                 }
                 else -> false
