@@ -9,9 +9,10 @@
     <item android:id="@+id/post"
         android:title="Post"
         android:icon="@drawable/circleadd"/>
-    <item android:id="@+id/notification"
-        android:title="Notifications"
-        android:icon="@drawable/notif"/>
+    <item
+        android:id="@+id/ongoing"
+        android:icon="@drawable/ic_baseline_work_24"
+        android:title="Ongoing" />
     <item android:id="@+id/PHistory"
         android:title="History"
         android:icon="@drawable/ic_baseline_history_24"/>

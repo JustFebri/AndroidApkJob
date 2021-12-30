@@ -19,13 +19,17 @@
             <TextView
                 android:id="@+id/applicant_name"
                 android:layout_width="match_parent"
+                android:paddingLeft="8dp"
                 android:layout_height="wrap_content"
+                android:textColor="#1F5A53"
                 android:text="Name"
                 android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/applicant_email"
                 android:layout_width="match_parent"
+            android:textColor="#1F5A53"
+                android:paddingLeft="8dp"
                 android:layout_height="wrap_content"
                 android:text="email@email.com" />
         </LinearLayout>
@@ -35,6 +39,7 @@
             android:layout_width="57dp"
             android:layout_height="65dp"
             android:layout_weight="1"
+            android:background="#EFD572"
             app:srcCompat="@drawable/ic_baseline_search_24" />
     </LinearLayout>
 
