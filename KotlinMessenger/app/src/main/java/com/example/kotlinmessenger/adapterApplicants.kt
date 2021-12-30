@@ -1,5 +1,6 @@
 package com.example.kotlinmessenger
 
+import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,6 +19,8 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
+import kotlin.collections.ArrayList
 
 class adapterApplicants (var parentFragmentManager : FragmentManager, val arrayAdapter: ArrayList<applicantion>)
     : RecyclerView.Adapter<adapterApplicants.ListViewHolder>()
@@ -26,6 +29,7 @@ class adapterApplicants (var parentFragmentManager : FragmentManager, val arrayA
         var _applicantName : TextView = itemView.findViewById(R.id.applicant_name)
         var _applicantEmail : TextView = itemView.findViewById(R.id.applicant_email)
         val _detailsButton : ImageButton = itemView.findViewById(R.id.applicantDetails)
+        val acceptApplicant : ImageButton = itemView.findViewById(R.id.acceptapplicant)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -42,14 +46,38 @@ class adapterApplicants (var parentFragmentManager : FragmentManager, val arrayA
         mDatabase.child("users").child(applicantUID).get().addOnSuccessListener {
             Log.i("firebase", "Got value ${it.value}")
             val value = it.getValue<User>()
-//            val usr : User = value as User
 
             if (value != null) {
                 holder._applicantName.text = value.username.toString()
             }
+
+            holder.acceptApplicant.setOnClickListener {
+                val db : FirebaseFirestore = FirebaseFirestore.getInstance()
+
+                db.collection("dbJobs").document(applicant.jobId)
+                    .update("worker", applicantUID)
+                    .addOnSuccessListener {
+//                    changeFragment(R.id.myframe, HomeActivity(), parentFragmentManager)
+                        Log.d("Firebase", "accept data success")
+                    }
+                    .addOnFailureListener{
+                        Log.d("Firebase", it.message .toString())
+                    }
+                db.collection("dbJobs").document(applicant.jobId)
+                    .update("status", "ongoing")
+                    .addOnSuccessListener {
+//                    changeFragment(R.id.myframe, HomeActivity(), parentFragmentManager)
+                        Log.d("Firebase", "accept data success")
+                    }
+                    .addOnFailureListener{
+                        Log.d("Firebase", it.message .toString())
+                    }
+                changeFragment(R.id.myframe, job(), parentFragmentManager)
+            }
         }.addOnFailureListener{
             Log.e("firebase", "Error getting data", it)
         }
+
     }
 
 

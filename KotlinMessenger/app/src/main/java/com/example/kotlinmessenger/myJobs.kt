@@ -63,10 +63,16 @@ class myJobs : Fragment() {
             .addOnSuccessListener { result ->
                 myJobsList.clear()
                 for (document in result) {
-                    myJobsList.add(jobItem(document.get("id").toString(),
-                        document.get("title").toString(),
-                        document.get("description").toString(),
-                        document.get("recruiterId").toString(), true))
+                    if(document.get("status").toString() == "pending") {
+                        myJobsList.add(
+                            jobItem(
+                                document.get("id").toString(),
+                                document.get("title").toString(),
+                                document.get("description").toString(),
+                                document.get("recruiterId").toString(), "pending", ""
+                            )
+                        )
+                    }
 //                    Log.w(ContentValues.TAG, document.get("id").toString())
                 }
                 recyclerview.layoutManager = LinearLayoutManager(view?.context)

@@ -48,6 +48,7 @@ class adapterJobs (var parentFragmentManager : FragmentManager,
             mBundle.putString("recruiterId", job.recruiterId)
             mBundle.putString("title", job.title)
             mBundle.putString("description", job.description)
+            mBundle.putString("jobId", job.id)
 
             val jobDetails = job_details()
             jobDetails.arguments = mBundle
@@ -69,6 +70,7 @@ class adapterJobs (var parentFragmentManager : FragmentManager,
             mBundle.putString("recruiterId", job.recruiterId)
             mBundle.putString("title", job.title)
             mBundle.putString("description", job.description)
+            mBundle.putString("jobId", job.id)
 
             val jobDetails = myJobDetails()
             jobDetails.arguments = mBundle

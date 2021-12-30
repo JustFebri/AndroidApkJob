@@ -66,7 +66,8 @@ class myJobDetails : Fragment() {
                 for (document in result) {
                     applicantList.add(applicantion(document.get("id").toString(),
                         document.get("applicantId").toString(),
-                        document.get("recruiterId").toString()))
+                        document.get("recruiterId").toString(),
+                        document.get("jobId").toString()))
                     Log.w("Testing", document.get("applicantId").toString())
                 }
 

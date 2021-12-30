@@ -62,8 +62,9 @@ class job_details : Fragment() {
         val recruiterId = arguments?.getString("recruiterId").toString()
         val jobtitle = arguments?.getString("title").toString()
         val jobdesc = arguments?.getString("description").toString()
+        val jobId = arguments?.getString("jobId").toString()
 
-        val newData  = applicantion(id, applicantID, recruiterId)
+        val newData  = applicantion(id, applicantID, recruiterId, jobId)
         apply.setOnClickListener {
             db.collection("dbApplications").document(id)
                 .set(newData)
