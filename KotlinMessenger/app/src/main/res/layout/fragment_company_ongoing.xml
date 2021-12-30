@@ -90,15 +90,30 @@
             app:layout_constraintTop_toBottomOf="@+id/tvcNama" />
 
         <Button
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="220dp"
+            android:id="@+id/bcAccept"
+            android:layout_width="175dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="224dp"
             android:fontFamily="sans-serif"
-            android:text="finish"
+            android:text="Accept"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintHorizontal_bias="0.067"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvcTitle" />
+
+        <Button
+            android:id="@+id/bcDecline"
+            android:layout_width="175dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="224dp"
+            android:fontFamily="sans-serif"
+            android:text="Decline"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.932"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvcTitle" />
 
