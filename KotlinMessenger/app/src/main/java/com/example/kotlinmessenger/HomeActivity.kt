@@ -64,6 +64,11 @@ class HomeActivity : AppCompatActivity() {
 //                    changeFragment(R.id.myframe, job(), supportFragmentManager)
                     true
                 }
+
+                R.id.PHistory -> {
+                    changeFragment(R.id.myframe, PlaceHolderFragmentHistory(), supportFragmentManager)
+                    true
+                }
                 else -> false
             }
         }
