@@ -66,6 +66,11 @@ class edt_prof : AppCompatActivity() {
             }
         }
 
+        edtprof_password.setOnFocusChangeListener { view, b ->
+            btn_cancel2.visibility = View.VISIBLE
+            btn_save2.isEnabled = true
+        }
+
         imgpic.setOnClickListener {
             Log.d(RegisterActivity.TAG, "Try to show photo selector")
 
@@ -95,6 +100,41 @@ class edt_prof : AppCompatActivity() {
             btn_cancel1.visibility = View.INVISIBLE
             btn_save1.isEnabled = false
         }
+
+        btn_save2.setOnClickListener {
+            if(edtprof_password.text.toString().length >= 6){
+                changePassword(edtprof_password.text.toString())
+                btn_cancel2.visibility = View.INVISIBLE
+                btn_save2.isEnabled = false
+                edtprof_password.setText("")
+            }
+            else
+            {
+                Toast.makeText(this, "Password length must me 6 or more", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+
+        btn_cancel2.setOnClickListener {
+            edtprof_password.setText(null)
+            btn_cancel2.visibility = View.INVISIBLE
+            btn_save2.isEnabled = false
+        }
+    }
+
+    private fun changePassword(psw: String){
+        Log.d("ChangePassword", "Password: $psw")
+        val user = FirebaseAuth.getInstance().currentUser
+
+        user!!.updatePassword(psw)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Log.d("ChangePassword", "User password updated.")
+                }
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+            }
     }
 
     var selectedPhotoUri: Uri? = null
