@@ -69,6 +69,10 @@ class HomeActivity : AppCompatActivity() {
                     changeFragment(R.id.myframe, PlaceHolderFragmentHistory(), supportFragmentManager)
                     true
                 }
+                R.id.ongoing -> {
+                    changeFragment(R.id.myframe, PlaceHolderOngoing(), supportFragmentManager)
+                    true
+                }
                 else -> false
             }
         }

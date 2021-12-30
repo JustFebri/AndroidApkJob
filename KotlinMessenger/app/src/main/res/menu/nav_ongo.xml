@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/OnGoJob"
+        android:icon="@drawable/ic_baseline_punch_clock_24"
+        android:title="Ongoing Job" />
+
+    <item
+        android:id="@+id/PostJob"
+        android:icon="@drawable/ic_baseline_contact_mail_24"
+        android:title="Job Regist List" />
+
+</menu>
