@@ -1,8 +1,7 @@
 package com.example.kotlinmessenger.jobs
 
-class jobItem (
+class applicantion (
     val id : String,
-    var title : String,
-    var description : String,
+    var applicantId : String,
     var recruiterId : String,
 )
