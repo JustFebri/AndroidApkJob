@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.fragment_job_nav.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +29,7 @@ class jobNav : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        changeFragment(R.id.jobsFrameLayout, myJobs(), parentFragmentManager)
     }
 
     override fun onCreateView(
@@ -34,7 +37,26 @@ class jobNav : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        changeFragment(R.id.jobsFrameLayout, myJobs(), parentFragmentManager)
         return inflater.inflate(R.layout.fragment_job_nav, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        topjobNav.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.browsejob -> {
+                    changeFragment(R.id.jobsFrameLayout, myJobs(), parentFragmentManager)
+                    true
+                }
+
+                R.id.myjob  -> {
+                    changeFragment(R.id.jobsFrameLayout, job(), parentFragmentManager)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     companion object {

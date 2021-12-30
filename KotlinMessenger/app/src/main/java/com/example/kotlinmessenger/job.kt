@@ -63,6 +63,7 @@ class job : Fragment() {
     private fun getData(recyclerview:RecyclerView){
         val uid = FirebaseAuth.getInstance().uid
         db.collection("dbJobs")
+            .whereNotEqualTo("recruiterId", uid)
             .get()
             .addOnSuccessListener { result ->
                 listjobs.clear()
@@ -74,7 +75,7 @@ class job : Fragment() {
 //                    Log.w(ContentValues.TAG, document.get("id").toString())
                 }
                 recyclerview.layoutManager = LinearLayoutManager(view?.context)
-                recyclerview.adapter = adapterJobs(parentFragmentManager)
+                recyclerview.adapter = adapterJobs(parentFragmentManager, listjobs)
             }
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)

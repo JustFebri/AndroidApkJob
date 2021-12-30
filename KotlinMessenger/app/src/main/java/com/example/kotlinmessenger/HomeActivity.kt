@@ -3,14 +3,12 @@ package com.example.kotlinmessenger
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.kotlinmessenger.messages.LatestMessagesActivity
-import com.example.kotlinmessenger.messages.NewMessageActivity
 import com.example.kotlinmessenger.models.User
 import com.example.kotlinmessenger.registerlogin.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -19,9 +17,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_edt_prof.*
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.user_row_new_message.view.*
+
 fun changeFragment(fcId:Int, destinationFragment: Fragment, parentFragmentManager: FragmentManager) {
     parentFragmentManager.beginTransaction().apply {
         replace(fcId, destinationFragment, destinationFragment::class.java.simpleName)
@@ -55,7 +52,7 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+        bottomNav.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.post -> {
                     changeFragment(R.id.myframe, addJob(), supportFragmentManager)

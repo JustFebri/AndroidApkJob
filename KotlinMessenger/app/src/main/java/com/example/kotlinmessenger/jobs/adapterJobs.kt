@@ -13,8 +13,7 @@ import com.example.kotlinmessenger.job_details
 import com.example.kotlinmessenger.listjobs
 import com.google.firebase.firestore.FirebaseFirestore
 
-val listJobs = arrayListOf<jobItem>()
-class adapterJobs (var parentFragmentManager : FragmentManager) : RecyclerView.Adapter<adapterJobs.ListViewHolder>()
+class adapterJobs (var parentFragmentManager : FragmentManager, val arrayAdapter: ArrayList<jobItem>) : RecyclerView.Adapter<adapterJobs.ListViewHolder>()
 {
     inner class  ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var _title : TextView = itemView.findViewById(R.id.rv_jobtitle)
@@ -29,7 +28,12 @@ class adapterJobs (var parentFragmentManager : FragmentManager) : RecyclerView.A
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        var job = listjobs[position]
+        browseJobs(position, holder)
+    }
+
+    fun browseJobs(position: Int, holder: ListViewHolder)
+    {
+        var job = arrayAdapter[position]
         val db = FirebaseFirestore.getInstance()
 
         holder._title.setText(job.title)
@@ -48,7 +52,14 @@ class adapterJobs (var parentFragmentManager : FragmentManager) : RecyclerView.A
         }
     }
 
+    fun myJobs(position: Int, holder: ListViewHolder)
+    {
+
+    }
+
+
+
     override fun getItemCount(): Int {
-        return listjobs.size
+        return arrayAdapter.size
     }
 }
