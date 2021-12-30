@@ -117,5 +117,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvcTitle" />
 
+        <ImageButton
+            android:id="@+id/ibaForward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:background="#EFD572"
+            android:src="@drawable/ic_baseline_arrow_forward_ios_48"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bcDecline" />
+
+        <ImageButton
+            android:id="@+id/ibaBackward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:background="#EFD572"
+            android:src="@drawable/ic_baseline_arrow_back_ios_48"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bcAccept" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
