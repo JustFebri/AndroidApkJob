@@ -5,20 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EFD572"
-    tools:context=".ApplicantOngoingFragment">
+    tools:context=".CompanyOngoing">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tvaCompany"
+            android:id="@+id/tvcNama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="36dp"
             android:fontFamily="sans-serif"
             android:paddingLeft="8dp"
-            android:text="Company"
+            android:text="Nama"
             android:textColor="#1F5A53"
             android:textSize="36sp"
             android:textStyle="bold"
@@ -26,10 +26,10 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvaTitle"
+            android:id="@+id/tvcTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="sans-serif"
             android:paddingLeft="8dp"
             android:text="Job Title"
@@ -37,14 +37,14 @@
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvaCompany" />
+            app:layout_constraintTop_toBottomOf="@+id/tvcNama" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="94dp"
             android:layout_height="23dp"
-            android:layout_marginStart="252dp"
-            android:layout_marginTop="220dp"
+            android:layout_marginStart="260dp"
+            android:layout_marginTop="260dp"
             android:fontFamily="sans-serif"
             android:paddingLeft="8dp"
             android:text="Applicant:"
@@ -52,14 +52,14 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvaCompany" />
+            app:layout_constraintTop_toBottomOf="@+id/tvcNama" />
 
         <ImageView
             android:id="@+id/ivaCompany"
             android:layout_width="103dp"
             android:layout_height="101dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/ic_baseline_not_interested_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -68,8 +68,8 @@
             android:id="@+id/ivaAplicant"
             android:layout_width="103dp"
             android:layout_height="101dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/ic_baseline_not_interested_24"
             app:layout_constraintStart_toEndOf="@+id/ivaCompany"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -78,8 +78,8 @@
             android:id="@+id/textView6"
             android:layout_width="131dp"
             android:layout_height="23dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="220dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="260dp"
             android:fontFamily="sans-serif"
             android:paddingLeft="8dp"
             android:text="From Company:"
@@ -87,24 +87,20 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvaCompany" />
+            app:layout_constraintTop_toBottomOf="@+id/tvcNama" />
 
         <Button
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="352dp"
-            android:layout_marginEnd="55dp"
+            android:layout_marginTop="400dp"
             android:fontFamily="sans-serif"
             android:text="finish"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvaTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/tvcTitle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </FrameLayout>
