@@ -47,7 +47,7 @@
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/chat_from_row.xml" value="0.11372847011144883" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/chat_to_row.xml" value="0.11347517730496454" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/fragment_add_job.xml" value="0.29347826086956524" />
-        <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/fragment_applicant_ongoing.xml" value="0.22" />
+        <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/fragment_applicant_ongoing.xml" value="0.25" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/fragment_company_ongoing.xml" value="0.25" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/fragment_history.xml" value="0.11347517730496454" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/fragment_home.xml" value="0.11347517730496454" />
@@ -62,8 +62,12 @@
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/fragment_place_holder_ongoing.xml" value="0.22" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/item_applicant.xml" value="0.33" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/item_jobs.xml" value="0.17119565217391305" />
+        <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/item_ongoing_employment.xml" value="0.25" />
+        <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/item_ongoing_job.xml" value="0.25" />
+        <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/item_ongoing_work.xml" value="0.11474164133738601" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/latest_message_row.xml" value="0.1" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/layouthistory.xml" value="0.1" />
+        <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/rcv_hs.xml" value="0.13632246376811594" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/layout/user_row_new_message.xml" value="0.1" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/menu/my_navigation_items.xml" value="0.36666666666666664" />
         <entry key="..\:/Kuliah/Android/Proyek/AndroidApkJob/KotlinMessenger/app/src/main/res/menu/nav_history.xml" value="0.17314814814814813" />

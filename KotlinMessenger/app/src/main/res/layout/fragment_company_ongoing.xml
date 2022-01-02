@@ -11,68 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tvcNama"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:fontFamily="sans-serif"
-            android:paddingLeft="8dp"
-            android:text="Nama"
-            android:textColor="#1F5A53"
-            android:textSize="36sp"
-            android:textStyle="bold"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvOngoingJob"
+            android:layout_width="409dp"
+            android:layout_height="729dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvcTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:fontFamily="sans-serif"
-            android:paddingLeft="8dp"
-            android:textColor="#1F5A53"
-            android:textSize="36sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvcNama" />
-
-        <Button
-            android:id="@+id/finishJob"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="96dp"
-            android:fontFamily="sans-serif"
-            android:text="Finish"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvcTitle" />
-
-        <ImageButton
-            android:id="@+id/ibaForward"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:background="#EFD572"
-            android:src="@drawable/ic_baseline_arrow_forward_ios_48"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bcDecline" />
-
-        <ImageButton
-            android:id="@+id/ibaBackward"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="48dp"
-            android:background="#EFD572"
-            android:src="@drawable/ic_baseline_arrow_back_ios_48"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bcDecline" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

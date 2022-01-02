@@ -11,10 +11,13 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlinmessenger.jobs.adapterJobs
+import com.example.kotlinmessenger.adapters.AdapterOngoingEmployment
+import com.example.kotlinmessenger.adapters.AdapterOngoingJob
 import com.example.kotlinmessenger.jobs.jobItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,6 +33,7 @@ class CompanyOngoing : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,13 +53,8 @@ class CompanyOngoing : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val finish : Button = view.findViewById(R.id.finishJob)
+        val recyclerview : RecyclerView = view.findViewById((R.id.rvOngoingJob))
         val uid = FirebaseAuth.getInstance().uid
-        val jobtitle : TextView = view.findViewById(R.id.tvcNama)
-        var cur = 0
-
-        val db : FirebaseFirestore = FirebaseFirestore.getInstance()
-
         db.collection("dbJobs")
             .whereEqualTo("recruiterId", uid)
             .get()
@@ -64,46 +63,21 @@ class CompanyOngoing : Fragment() {
                 for (document in result) {
                     if(document.get("status").toString() == "ongoing")
                     {
-                        listjobs.add(
-                            jobItem(document.get("id").toString(),
-                                document.get("title").toString(),
-                                document.get("description").toString(),
-                                document.get("recruiterId").toString(),
-                                "ongoing",
-                                document.get("worker").toString())
-                        )
+                        listjobs.add(jobItem(document.get("id").toString(),
+                            document.get("title").toString(),
+                            document.get("description").toString(),
+                            document.get("recruiterId").toString(),
+                            document.get("status").toString(),
+                            document.get("worker").toString()))
                     }
-//                    Log.w(ContentValues.TAG, document.get("id").toString())
+//                    Log.w("ada", document.get("id").toString())
                 }
-                if(listjobs.size <= 0)
-                {
-                    jobtitle.text = "No Job Ongoing"
-                    finish.visibility = View.INVISIBLE
-                }
-                else
-                {
-                    jobtitle.text = listjobs[cur].title
-                    finish.visibility = View.VISIBLE
-                }
-
+                recyclerview.layoutManager = LinearLayoutManager(view?.context)
+                recyclerview.adapter = AdapterOngoingJob(parentFragmentManager, listjobs, false)
             }
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)
             }
-
-
-        finish.setOnClickListener {
-            db.collection("dbJobs").document(listjobs[cur].id)
-                .update("status", "finished")
-                .addOnSuccessListener {
-//                    changeFragment(R.id.myframe, HomeActivity(), parentFragmentManager)
-                    Log.d("Firebase", "update data success")
-                    changeFragment(R.id.ongoingframelayout, CompanyOngoing(), parentFragmentManager)
-                }
-                .addOnFailureListener{
-                    Log.d("Firebase", it.message .toString())
-                }
-        }
     }
 
     companion object {

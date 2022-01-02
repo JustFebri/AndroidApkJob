@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlinmessenger.jobs.adapterJobs
+import com.example.kotlinmessenger.adapters.adapterJobs
 import com.example.kotlinmessenger.jobs.jobItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore

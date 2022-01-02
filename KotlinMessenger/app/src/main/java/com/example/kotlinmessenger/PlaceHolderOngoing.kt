@@ -44,12 +44,12 @@ class PlaceHolderOngoing : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         topOngBar.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
-                R.id.ongoingwork -> {
+                R.id.OnGoJob -> {
                     changeFragment(R.id.ongoingframelayout, CompanyOngoing(), parentFragmentManager)
                     true
                 }
 
-                R.id.OnGoJob  -> {
+                R.id.ongoingwork  -> {
                     changeFragment(R.id.ongoingframelayout, ApplicantOngoingFragment(), parentFragmentManager)
                     true
                 }

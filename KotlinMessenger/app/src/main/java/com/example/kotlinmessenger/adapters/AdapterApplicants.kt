@@ -1,7 +1,5 @@
-package com.example.kotlinmessenger
+package com.example.kotlinmessenger.adapters
 
-import android.media.Image
-import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,16 +8,14 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlinmessenger.jobs.adapterJobs
+import com.example.kotlinmessenger.R
+import com.example.kotlinmessenger.changeFragment
+import com.example.kotlinmessenger.job
 import com.example.kotlinmessenger.jobs.applicantion
-import com.example.kotlinmessenger.jobs.jobItem
 import com.example.kotlinmessenger.models.User
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.*
 import kotlin.collections.ArrayList
 
 class adapterApplicants (var parentFragmentManager : FragmentManager, val arrayAdapter: ArrayList<applicantion>)

@@ -1,6 +1,5 @@
 package com.example.kotlinmessenger
 
-import android.app.DatePickerDialog
 import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
@@ -8,17 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlinmessenger.jobs.adapterJobs
+import com.example.kotlinmessenger.adapters.adapterJobs
 import com.example.kotlinmessenger.jobs.jobItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
