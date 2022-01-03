@@ -70,15 +70,15 @@ class rating : Fragment() {
                 .addOnFailureListener{
                     Log.d("Firebase", it.message .toString())
                 }
-//            db.collection("dbRating").document(id)
-//                .set(newData)
-//                .addOnSuccessListener {
-////                    changeFragment(R.id.myframe, HomeActivity(), parentFragmentManager)
-//                    Log.d("Firebase", "Add data success")
-//                }
-//                .addOnFailureListener{
-//                    Log.d("Firebase", it.message .toString())
-//                }
+            db.collection("dbRating").document(id)
+                .set(newData)
+                .addOnSuccessListener {
+//                    changeFragment(R.id.myframe, HomeActivity(), parentFragmentManager)
+                    Log.d("Firebase", "Add data success")
+                }
+                .addOnFailureListener{
+                    Log.d("Firebase", it.message .toString())
+                }
         }
 
 
