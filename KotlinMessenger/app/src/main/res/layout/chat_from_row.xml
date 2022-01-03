@@ -16,6 +16,7 @@
         android:layout_marginStart="8dp"
         android:text="This is my message that will wrap into multiple lines and keep on going"
         android:maxWidth="240dp"
+        android:textColor="#1F5A53"
         android:background="@drawable/rounded_edittext_register_login"
         android:padding="16dp"
         app:layout_constraintStart_toEndOf="@+id/imageview_chat_from_row"
