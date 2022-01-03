@@ -76,9 +76,8 @@ class FragmentHistory1 : Fragment() {
                     }
 //                    Log.w(ContentValues.TAG, document.get("id").toString())
                 }
-
                 recyclerview.layoutManager = LinearLayoutManager(view?.context)
-                recyclerview.adapter = adapterHsJobs(parentFragmentManager, listjobs, true)
+                recyclerview.adapter = adapterHsJobs(parentFragmentManager, listjobs, false)
             }
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)

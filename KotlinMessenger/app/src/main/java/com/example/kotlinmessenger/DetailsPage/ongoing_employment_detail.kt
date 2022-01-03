@@ -57,8 +57,11 @@ class ongoing_employment_detail : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<TextView>(R.id.ongoing_employment_details_job_title).text = arguments?.getString("jobname").toString()
-        view.findViewById<TextView>(R.id.ongoing_employment_employer).text = arguments?.getString("worker").toString()
+        val terminate : Button = view.findViewById(R.id.terminateContract)
+        val jobId = arguments?.getString("jobId").toString()
+        val email = FirebaseAuth.getInstance().currentUser?.email
+        view.findViewById<TextView>(R.id.ongoingEmploymentDetails).text = arguments?.getString("jobname").toString()
+        view.findViewById<TextView>(R.id.ongoingEmploymentDetails).text = arguments?.getString("worker").toString()
 
         imageButton.setOnClickListener {
             Log.d("BEKBTN", "HAHAHA")

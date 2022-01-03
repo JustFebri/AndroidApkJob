@@ -54,7 +54,7 @@ class AdapterOngoingEmployment (var parentFragmentManager : FragmentManager,
                     mBundle.putString("worker", value.username)
                 }
 
-                val jobDetails = ongoing_employment_detail()
+                val jobDetails = ongoing_job_details()
                 jobDetails.arguments = mBundle
                 changeFragment(R.id.ongoingframelayout, jobDetails, parentFragmentManager)
             }
