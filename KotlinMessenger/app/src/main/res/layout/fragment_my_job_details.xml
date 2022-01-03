@@ -29,25 +29,6 @@
         android:text="Description"
         android:textSize="32sp" />
 
-    <TextView
-        android:id="@+id/mjdt_JobGiver"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#1F5A53"
-        android:text="Job Giver/Company"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif"
-        android:textSize="32sp" />
-
-    <TextView
-        android:id="@+id/mjdt_applicants"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:textColor="#1F5A53"
-        android:text="Applicant"
-        android:textSize="34sp" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvJobApplicant"
         android:layout_width="match_parent"

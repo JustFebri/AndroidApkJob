@@ -67,7 +67,6 @@ class ApplicantOngoingFragment : Fragment() {
                             document.get("status").toString(),
                             document.get("worker").toString()))
                     }
-                    Log.w("DANCOK", document.get("id").toString())
                 }
                 recyclerview.layoutManager = LinearLayoutManager(view?.context)
                 recyclerview.adapter = AdapterOngoingEmployment(parentFragmentManager, listjobs, false)

@@ -1,20 +1,32 @@
 package com.example.kotlinmessenger.DetailsPage
 
 import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmessenger.R
 import com.example.kotlinmessenger.adapters.adapterApplicants
 import com.example.kotlinmessenger.jobs.applicantion
+import com.example.kotlinmessenger.messages.ChatLogActivity
+import com.example.kotlinmessenger.messages.LatestMessagesActivity
+import com.example.kotlinmessenger.messages.UserItem
+import com.example.kotlinmessenger.models.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_ongoing_employment_detail.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,15 +63,16 @@ class myJobDetails : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val recyclerview : RecyclerView = view.findViewById((R.id.rvJobApplicant))
+        view.findViewById<TextView>(R.id.mjdt_title).text = arguments?.getString("title").toString()
+        view.findViewById<TextView>(R.id.mjdt_description).text = arguments?.getString("description").toString()
         getData(recyclerview)
-
     }
 
     private fun getData(recyclerview: RecyclerView){
         val uid = FirebaseAuth.getInstance().uid
-
+        val jobid = arguments?.getString("jobId").toString()
         db.collection("dbApplications")
-            .whereEqualTo("recruiterId", uid)
+            .whereEqualTo("jobId", jobid)
             .get()
             .addOnSuccessListener { result ->
                 applicantList.clear()
@@ -77,6 +90,23 @@ class myJobDetails : Fragment() {
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)
             }
+
+    }
+
+    private fun fetchCurrentUser() {
+        val uid = FirebaseAuth.getInstance().uid
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+        ref.addListenerForSingleValueEvent(object: ValueEventListener {
+
+            override fun onDataChange(p0: DataSnapshot) {
+                LatestMessagesActivity.currentUser = p0.getValue(User::class.java)
+                Log.d("LatestMessages", "Current user ${LatestMessagesActivity.currentUser?.profileImageUrl}")
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+        })
     }
 
     companion object {
