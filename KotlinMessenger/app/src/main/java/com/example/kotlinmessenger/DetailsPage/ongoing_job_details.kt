@@ -91,7 +91,7 @@ class ongoing_job_details : Fragment() {
 
         imageButton2.setOnClickListener {
             Log.d("BEKBTN", "HAHAHA")
-            var SendId = arguments?.getString("recruiterId").toString()
+            var SendId = arguments?.getString("workerId").toString()
 
             val ref = FirebaseDatabase.getInstance().getReference("/users/$SendId")
             ref.addListenerForSingleValueEvent(object: ValueEventListener {
