@@ -9,13 +9,13 @@
         android:id="@+id/ongoingJobTitle"
         android:layout_width="250dp"
         android:layout_height="51dp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif"
-        android:textColor="#1F5A53"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif"
         android:text="Job Title"
+        android:textColor="#1F5A53"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,11 +34,11 @@
 
     <ImageButton
         android:id="@+id/ongoingJobdetails"
-        android:layout_width="83dp"
-        android:layout_height="81dp"
+        android:layout_width="96dp"
+        android:layout_height="91dp"
         android:layout_marginStart="24dp"
-        android:background="#EFD572"
         android:layout_marginTop="8dp"
+        android:background="#EFD572"
         app:layout_constraintStart_toEndOf="@+id/ongoingJobTitle"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_search_24" />

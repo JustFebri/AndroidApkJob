@@ -11,12 +11,12 @@
         android:layout_width="250dp"
         android:layout_height="51dp"
         android:layout_marginStart="32dp"
-        android:textStyle="bold"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif"
-        android:textColor="#1F5A53"
-        android:layout_marginTop="24dp"
         android:text="Job Title"
+        android:textColor="#1F5A53"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,11 +35,11 @@
 
     <ImageButton
         android:id="@+id/ongoingEmploymentDetails"
-        android:layout_width="83dp"
-        android:layout_height="81dp"
+        android:layout_width="85dp"
+        android:layout_height="84dp"
         android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
         android:background="#EFD572"
-        android:layout_marginTop="24dp"
         app:layout_constraintStart_toEndOf="@+id/ongoingEmploymentJobtitle"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_search_24" />
