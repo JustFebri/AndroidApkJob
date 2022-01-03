@@ -69,7 +69,9 @@ class FragmentHistory1 : Fragment() {
                             jobItem(document.get("id").toString(),
                             document.get("title").toString(),
                             document.get("description").toString(),
-                            document.get("recruiterId").toString(), "pending","")
+                            document.get("recruiterId").toString(),
+                                document.get("status").toString(),
+                                document.get("worker").toString())
                         )
                     }
 //                    Log.w(ContentValues.TAG, document.get("id").toString())

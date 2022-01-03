@@ -22,18 +22,51 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tvd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:text="Description"
-        android:textStyle="bold"
         android:fontFamily="sans-serif"
+        android:text="Description"
         android:textColor="#1F5A53"
         android:textSize="16sp"
-        android:id="@+id/tvd"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tvt"
-        app:layout_constraintTop_toBottomOf="@+id/tvt" />
+        app:layout_constraintTop_toBottomOf="@+id/tvt"
+        app:layout_constraintVertical_bias="0.155" />
+
+    <TextView
+        android:id="@+id/history_employee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Employee"
+        app:layout_constraintStart_toStartOf="@+id/tvd"
+        app:layout_constraintTop_toBottomOf="@+id/tvd" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        app:layout_constraintStart_toStartOf="@+id/history_employee"
+        app:layout_constraintTop_toBottomOf="@+id/history_employee"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <TextView
+        android:id="@+id/employee_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/history_employee" />
+
+    <TextView
+        android:id="@+id/history_finish_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Finish Time"
+        app:layout_constraintStart_toStartOf="@+id/history_employee"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
