@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EFD572"
     tools:context=".ongoing_job_details">
 
     <TextView
@@ -30,9 +31,10 @@
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="86dp"
+        android:layout_height="65dp"
         android:layout_marginTop="16dp"
+        android:background="#EFD572"
         android:src="@drawable/ic_baseline_chat_24"
         app:layout_constraintStart_toEndOf="@+id/ongoing_job_job_title"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,8 +43,8 @@
         android:id="@+id/terminateContract"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="88dp"
         android:text="Terminate Contract"
         app:layout_constraintStart_toStartOf="@+id/ongoing_job_employee"
         app:layout_constraintTop_toBottomOf="@+id/ongoing_job_employee" />

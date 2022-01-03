@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EFD572"
     tools:context=".ongoing_employment_detail">
 
     <TextView
@@ -30,10 +31,11 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="65dp"
+        android:layout_height="58dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        android:background="#EFD572"
         android:src="@drawable/ic_baseline_chat_24"
         app:layout_constraintStart_toEndOf="@+id/ongoing_employment_details_job_title"
         app:layout_constraintTop_toTopOf="parent" />

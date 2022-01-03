@@ -43,6 +43,8 @@
         android:id="@+id/mjdt_applicants"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textColor="#1F5A53"
         android:text="Applicant"
         android:textSize="34sp" />
 
