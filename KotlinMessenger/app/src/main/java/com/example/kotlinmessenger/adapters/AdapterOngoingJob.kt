@@ -47,6 +47,10 @@ class AdapterOngoingJob (var parentFragmentManager : FragmentManager,
             holder._detailsButton.setOnClickListener {
                 var mBundle = Bundle()
                 mBundle.putString("jobId", emp.id)
+                mBundle.putString("jobname", emp.title)
+                if (value != null) {
+                    mBundle.putString("worker", value.username)
+                }
 
                 val jobDetails = ongoing_job_details()
                 jobDetails.arguments = mBundle

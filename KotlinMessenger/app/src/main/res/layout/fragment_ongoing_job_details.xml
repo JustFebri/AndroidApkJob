@@ -8,7 +8,7 @@
     tools:context=".ongoing_job_details">
 
     <TextView
-        android:id="@+id/ongoing_job_job_title"
+        android:id="@+id/ongoing_job_job_title_details"
         android:layout_width="291dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
@@ -19,15 +19,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/ongoing_job_employee"
+        android:id="@+id/ongoing_job_employee_details"
         android:layout_width="296dp"
         android:layout_height="30dp"
         android:text="Employee"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/ongoing_employment_details_job_title"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/ongoing_job_job_title"
-        app:layout_constraintTop_toBottomOf="@+id/ongoing_job_job_title" />
+        app:layout_constraintStart_toStartOf="@+id/ongoing_job_job_title_details"
+        app:layout_constraintTop_toBottomOf="@+id/ongoing_job_job_title_details" />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -36,7 +36,7 @@
         android:layout_marginTop="16dp"
         android:background="#EFD572"
         android:src="@drawable/ic_baseline_chat_24"
-        app:layout_constraintStart_toEndOf="@+id/ongoing_job_job_title"
+        app:layout_constraintStart_toEndOf="@+id/ongoing_job_job_title_details"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -46,6 +46,6 @@
         android:layout_marginStart="88dp"
         android:layout_marginTop="88dp"
         android:text="Terminate Contract"
-        app:layout_constraintStart_toStartOf="@+id/ongoing_job_employee"
-        app:layout_constraintTop_toBottomOf="@+id/ongoing_job_employee" />
+        app:layout_constraintStart_toStartOf="@+id/ongoing_job_employee_details"
+        app:layout_constraintTop_toBottomOf="@+id/ongoing_job_employee_details" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,10 +3,10 @@
     <item
         android:id="@+id/recentPostedJob"
         android:icon="@drawable/ic_baseline_assignment_24"
-        android:title="Recent Posted Job" />
+        android:title="Recent Job" />
     <item
         android:id="@+id/recentJob"
         android:icon="@drawable/ic_baseline_access_time_filled_24"
-        android:title="Recent Job" />
+        android:title="Recent Work" />
 
 </menu>

@@ -38,19 +38,11 @@
 
         <ImageButton
             android:id="@+id/acceptapplicant"
-            android:layout_width="wrap_content"
+            android:layout_width="7dp"
             android:layout_height="match_parent"
             android:layout_weight="15"
             android:background="#EFD572"
             app:srcCompat="@drawable/ic_baseline_add_24" />
-
-        <ImageButton
-            android:id="@+id/applicantDetails"
-            android:layout_width="57dp"
-            android:layout_height="65dp"
-            android:layout_weight="1"
-            android:background="#EFD572"
-            app:srcCompat="@drawable/ic_baseline_search_24" />
 
     </LinearLayout>
 

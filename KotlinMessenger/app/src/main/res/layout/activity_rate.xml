@@ -10,7 +10,7 @@
     tools:context=".rate">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/rating_job_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
@@ -20,7 +20,7 @@
         android:textSize="34sp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/rating_worker_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
@@ -31,7 +31,7 @@
         android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/rating_workerEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="8sp"
