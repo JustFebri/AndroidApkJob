@@ -44,7 +44,7 @@ class AdapterOngoingEmployment (var parentFragmentManager : FragmentManager,
                 holder._employer.text = value.username
             }
             holder._detailsButton.setOnClickListener {
-
+                changeFragment(R.id.ongoingframelayout, ongoing_employment_detail(), parentFragmentManager)
             }
         }.addOnFailureListener{
             Log.e("firebase", "Error getting data", it)
