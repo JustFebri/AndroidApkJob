@@ -1,11 +1,28 @@
 package com.example.kotlinmessenger.DetailsPage
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import com.example.kotlinmessenger.R
+import com.example.kotlinmessenger.changeFragment
+import com.example.kotlinmessenger.messages.ChatLogActivity
+import com.example.kotlinmessenger.messages.LatestMessagesActivity
+import com.example.kotlinmessenger.messages.UserItem
+import com.example.kotlinmessenger.models.User
+import com.example.kotlinmessenger.rating
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.fragment_ongoing_employment_detail.*
+import kotlinx.android.synthetic.main.fragment_ongoing_job_details.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +53,56 @@ class ongoing_employment_detail : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_ongoing_employment_detail, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val terminate : Button = view.findViewById(R.id.terminateContract)
+        val jobId = arguments?.getString("jobId").toString()
+        val email = FirebaseAuth.getInstance().currentUser?.email
+        view.findViewById<TextView>(R.id.ongoingEmploymentDetails).text = arguments?.getString("jobname").toString()
+        view.findViewById<TextView>(R.id.ongoingEmploymentDetails).text = arguments?.getString("worker").toString()
+
+        imageButton.setOnClickListener {
+            Log.d("BEKBTN", "HAHAHA")
+            var SendId = arguments?.getString("recruiterId").toString()
+
+            val ref = FirebaseDatabase.getInstance().getReference("/users/$SendId")
+            ref.addListenerForSingleValueEvent(object: ValueEventListener {
+                override fun onDataChange(p0: DataSnapshot) {
+                    var temp: User? = p0.getValue(User::class.java)
+
+                    if(temp != null){
+                        val userItem = UserItem(temp)
+                        val intent = Intent(view.context, ChatLogActivity::class.java)
+                        intent.putExtra("USER_KEY", userItem.user)
+                        startActivity(intent)
+                    }
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+            })
+            fetchCurrentUser()
+
+        }
+    }
+
+    private fun fetchCurrentUser() {
+        val uid = FirebaseAuth.getInstance().uid
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+        ref.addListenerForSingleValueEvent(object: ValueEventListener {
+
+            override fun onDataChange(p0: DataSnapshot) {
+                LatestMessagesActivity.currentUser = p0.getValue(User::class.java)
+                Log.d("LatestMessages", "Current user ${LatestMessagesActivity.currentUser?.profileImageUrl}")
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+        })
     }
 
     companion object {
