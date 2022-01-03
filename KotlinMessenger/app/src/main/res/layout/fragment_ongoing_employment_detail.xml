@@ -14,6 +14,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Job Title"
+        android:textColor="#1F5A53"
+        android:textStyle="bold"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,6 +25,7 @@
         android:layout_width="296dp"
         android:layout_height="30dp"
         android:text="Employer"
+        android:textColor="#1F5A53"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/ongoing_employment_details_job_title"
         app:layout_constraintHorizontal_bias="0.0"
@@ -31,12 +34,12 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="65dp"
-        android:layout_height="58dp"
+        android:layout_width="71dp"
+        android:layout_height="67dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:background="#EFD572"
-        android:src="@drawable/ic_baseline_chat_24"
+        android:src="@drawable/ic_baseline_chat_2_24"
         app:layout_constraintStart_toEndOf="@+id/ongoing_employment_details_job_title"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
