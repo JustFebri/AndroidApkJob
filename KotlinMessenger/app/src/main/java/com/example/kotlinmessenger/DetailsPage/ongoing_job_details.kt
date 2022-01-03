@@ -1,4 +1,4 @@
-package com.example.kotlinmessenger
+package com.example.kotlinmessenger.DetailsPage
 
 import android.content.ContentValues
 import android.os.Bundle
@@ -7,10 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlinmessenger.adapters.adapterJobs
-import com.example.kotlinmessenger.jobs.jobItem
+import com.example.kotlinmessenger.CompanyOngoing
+import com.example.kotlinmessenger.R
+import com.example.kotlinmessenger.adapters.adapterApplicants
+import com.example.kotlinmessenger.changeFragment
+import com.example.kotlinmessenger.jobs.applicantion
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -22,12 +25,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [job.newInstance] factory method to
+ * Use the [ongoing_job_details.newInstance] factory method to
  * create an instance of this fragment.
  */
-
-val listjobs = arrayListOf<jobItem>()
-class job : Fragment() {
+class ongoing_job_details : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -46,38 +47,27 @@ class job : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_job, container, false)
+        return inflater.inflate(R.layout.fragment_ongoing_job_details, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val recyclerview : RecyclerView = view.findViewById((R.id.rvJobs))
-        getData(recyclerview)
-
-    }
-
-    private fun getData(recyclerview:RecyclerView){
+        super.onViewCreated(view, savedInstanceState)
+        val terminate : Button = view.findViewById(R.id.terminateContract)
+        val jobId = arguments?.getString("jobId").toString()
         val uid = FirebaseAuth.getInstance().uid
-        db.collection("dbJobs")
-            .whereNotEqualTo("recruiterId", uid)
-            .get()
-            .addOnSuccessListener { result ->
-                listjobs.clear()
-                for (document in result) {
-                    if(document.get("status").toString() == "pending")
-                    {
-                        listjobs.add(jobItem(document.get("id").toString(),
-                            document.get("title").toString(),
-                            document.get("description").toString(),
-                            document.get("recruiterId").toString(), "pending",""))
-                    }
-//                    Log.w(ContentValues.TAG, document.get("id").toString())
+
+        terminate.setOnClickListener {
+            db.collection("dbJobs").document(jobId)
+                .update("status", "finished")
+                .addOnSuccessListener {
+//                    changeFragment(R.id.myframe, HomeActivity(), parentFragmentManager)
+                    Log.d("Firebase", "accept data success")
+                    changeFragment(R.id.ongoingframelayout, CompanyOngoing(), parentFragmentManager)
                 }
-                recyclerview.layoutManager = LinearLayoutManager(view?.context)
-                recyclerview.adapter = adapterJobs(parentFragmentManager, listjobs, false)
-            }
-            .addOnFailureListener { exception ->
-                Log.w(ContentValues.TAG, "Error getting documents.", exception)
-            }
+                .addOnFailureListener{
+                    Log.d("Firebase", it.message .toString())
+                }
+        }
     }
 
     companion object {
@@ -87,12 +77,12 @@ class job : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment job.
+         * @return A new instance of fragment ongoing_job_details.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            job().apply {
+            ongoing_job_details().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

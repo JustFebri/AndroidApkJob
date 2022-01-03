@@ -1,10 +1,14 @@
-package com.example.kotlinmessenger
+package com.example.kotlinmessenger.navigation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.kotlinmessenger.ApplicantOngoingFragment
+import com.example.kotlinmessenger.CompanyOngoing
+import com.example.kotlinmessenger.R
+import com.example.kotlinmessenger.changeFragment
 import kotlinx.android.synthetic.main.fragment_job_nav.*
 import kotlinx.android.synthetic.main.fragment_job_nav.topjobNav
 import kotlinx.android.synthetic.main.fragment_place_holder_ongoing.*
@@ -37,6 +41,7 @@ class PlaceHolderOngoing : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        changeFragment(R.id.ongoingframelayout, CompanyOngoing(), parentFragmentManager)
         return inflater.inflate(R.layout.fragment_place_holder_ongoing, container, false)
     }
 
@@ -44,12 +49,12 @@ class PlaceHolderOngoing : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         topOngBar.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
-                R.id.ongoingwork -> {
+                R.id.OnGoJob -> {
                     changeFragment(R.id.ongoingframelayout, CompanyOngoing(), parentFragmentManager)
                     true
                 }
 
-                R.id.OnGoJob  -> {
+                R.id.ongoingwork  -> {
                     changeFragment(R.id.ongoingframelayout, ApplicantOngoingFragment(), parentFragmentManager)
                     true
                 }

@@ -9,7 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlinmessenger.jobs.adapterJobs
+import com.example.kotlinmessenger.adapters.adapterJobs
+import com.example.kotlinmessenger.jobs.adapterHsJobs
 import com.example.kotlinmessenger.jobs.jobItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -50,8 +51,8 @@ class FragmentHistory1 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val recyclerview : RecyclerView = view.findViewById((R.id.ongorc1))
-//        getData(recyclerview)
+        val recyclerview : RecyclerView = view.findViewById((R.id.ongorc1))
+        getData(recyclerview)
     }
 
     private fun getData(recyclerview: RecyclerView){
@@ -74,7 +75,7 @@ class FragmentHistory1 : Fragment() {
 //                    Log.w(ContentValues.TAG, document.get("id").toString())
                 }
                 recyclerview.layoutManager = LinearLayoutManager(view?.context)
-                recyclerview.adapter = adapterJobs(parentFragmentManager, listjobs, false)
+                recyclerview.adapter = adapterHsJobs(parentFragmentManager, listjobs, false)
             }
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)

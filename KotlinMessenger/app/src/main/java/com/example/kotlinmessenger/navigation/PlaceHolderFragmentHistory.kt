@@ -37,6 +37,7 @@ class PlaceHolderFragmentHistory : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        changeFragment(R.id.HSFrameLayout, FragmentHistory1(), parentFragmentManager)
         return inflater.inflate(R.layout.fragment_place_holder_history, container, false)
     }
 

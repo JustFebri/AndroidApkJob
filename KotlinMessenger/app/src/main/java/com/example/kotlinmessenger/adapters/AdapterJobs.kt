@@ -1,4 +1,4 @@
-package com.example.kotlinmessenger.jobs
+package com.example.kotlinmessenger.adapters
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,9 @@ import android.widget.*
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmessenger.*
+import com.example.kotlinmessenger.DetailsPage.*
+import com.example.kotlinmessenger.DetailsPage.job_details
+import com.example.kotlinmessenger.jobs.jobItem
 import com.google.firebase.firestore.FirebaseFirestore
 
 class adapterJobs (var parentFragmentManager : FragmentManager,
