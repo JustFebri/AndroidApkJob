@@ -1,6 +1,7 @@
 package com.example.kotlinmessenger.DetailsPage
 
 import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,13 +13,25 @@ import android.widget.TextView
 import com.example.kotlinmessenger.CompanyOngoing
 import com.example.kotlinmessenger.R
 import com.example.kotlinmessenger.changeFragment
+import com.example.kotlinmessenger.messages.ChatLogActivity
+import com.example.kotlinmessenger.messages.NewMessageActivity
+import com.example.kotlinmessenger.messages.UserItem
 import com.example.kotlinmessenger.models.User
 import com.example.kotlinmessenger.rating
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.Picasso
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.ViewHolder
+import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_new_message.*
+import kotlinx.android.synthetic.main.fragment_ongoing_job_details.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,6 +83,29 @@ class ongoing_job_details : Fragment() {
             val rating = rating()
             rating.arguments = mBundle
             changeFragment(R.id.ongoingframelayout, rating, parentFragmentManager)
+        }
+
+        imageButton2.setOnClickListener {
+            var SendId = arguments?.getString("recruiterId").toString()
+
+            val ref = FirebaseDatabase.getInstance().getReference("/users/$SendId")
+            ref.addListenerForSingleValueEvent(object: ValueEventListener {
+                override fun onDataChange(p0: DataSnapshot) {
+                    var temp: User? = p0.getValue(User::class.java)
+
+                    if(temp != null){
+                        val userItem = UserItem(temp)
+                        val intent = Intent(view.context, ChatLogActivity::class.java)
+                        intent.putExtra("USER_KEY", userItem.user)
+                        startActivity(intent)
+                    }
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+            })
+
 
         }
     }
