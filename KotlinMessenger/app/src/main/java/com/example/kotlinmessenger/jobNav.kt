@@ -29,7 +29,6 @@ class jobNav : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-        changeFragment(R.id.jobsFrameLayout, myJobs(), parentFragmentManager)
     }
 
     override fun onCreateView(
@@ -37,7 +36,8 @@ class jobNav : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        changeFragment(R.id.jobsFrameLayout, myJobs(), parentFragmentManager)
+        changeFragment(R.id.jobsFrameLayout, job(), parentFragmentManager)
+//        topjobNav.menu.findItem(R.id.browsejob).setChecked(true)
         return inflater.inflate(R.layout.fragment_job_nav, container, false)
     }
 

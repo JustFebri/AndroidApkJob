@@ -47,6 +47,10 @@ class HomeActivity : AppCompatActivity() {
 
         verifyUserIsLoggedIn()
 
+        //first view
+        changeFragment(R.id.myframe, jobNav(), supportFragmentManager)
+        bottomNav.menu.findItem(R.id.jobs).setChecked(true)
+
         btn_chat.setOnClickListener {
             val intent = Intent(this, LatestMessagesActivity::class.java)
             startActivity(intent)
