@@ -50,8 +50,8 @@ class FragmentHistory2 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val recyclerview : RecyclerView = view.findViewById((R.id.ongorc2))
-//        getData(recyclerview)
+        val recyclerview : RecyclerView = view.findViewById((R.id.ongorc2))
+        getData(recyclerview)
     }
 
     private fun getData(recyclerview: RecyclerView){
