@@ -24,7 +24,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class adapterHsJobs (var parentFragmentManager : FragmentManager,
-                               val arrayAdapter: ArrayList<jobItem>, val isMine : Boolean) : RecyclerView.Adapter<adapterHsJobs.ListViewHolder>()
+                               val arrayAdapter: ArrayList<jobItem>, val isEmployer : Boolean) : RecyclerView.Adapter<adapterHsJobs.ListViewHolder>()
 {
     inner class  ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var _title : TextView = itemView.findViewById(R.id.tvt)
@@ -47,31 +47,64 @@ class adapterHsJobs (var parentFragmentManager : FragmentManager,
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         var arr = arrayAdapter[position]
 
-        val mDatabase = FirebaseDatabase.getInstance().getReference()
-        mDatabase.child("users").child(arr.worker).get().addOnSuccessListener {
-            Log.i("firebase", "Got value ${it.value}")
-            val value = it.getValue<User>()
-            holder._title.setText(arr.title)
-            holder._description.setText(arr.description)
-            if (value != null) {
-                holder._employee.setText(value.username)
-            }
-            val db = Firebase.firestore
-            db.collection("dbRating")
-                .whereEqualTo("jobId", arr.id)
-                .get()
-                .addOnSuccessListener { result ->
-                    for (document in result) {
-                        holder._employee_rating.text = document.get("rating").toString()
-                        holder._finish_time.text = document.get("timeFinished").toString()
+        if(isEmployer)
+        {
+            val mDatabase = FirebaseDatabase.getInstance().getReference()
+            mDatabase.child("users").child(arr.worker).get().addOnSuccessListener {
+                Log.i("firebase", "Got value ${it.value}")
+                val value = it.getValue<User>()
+                holder._title.setText(arr.title)
+                holder._description.setText(arr.description)
+                if (value != null) {
+                    holder._employee.setText(value.username)
+                }
+                val db = Firebase.firestore
+                db.collection("dbRating")
+                    .whereEqualTo("jobId", arr.id)
+                    .get()
+                    .addOnSuccessListener { result ->
+                        for (document in result) {
+                            holder._employee_rating.text = document.get("rating").toString()
+                            holder._finish_time.text = document.get("timeFinished").toString()
 //                    Log.w(ContentValues.TAG, document.get("id").toString())
+                        }
                     }
-                }
-                .addOnFailureListener { exception ->
-                    Log.w(ContentValues.TAG, "Error getting documents.", exception)
-                }
-        }.addOnFailureListener{
-            Log.e("firebase", "Error getting data", it)
+                    .addOnFailureListener { exception ->
+                        Log.w(ContentValues.TAG, "Error getting documents.", exception)
+                    }
+            }.addOnFailureListener{
+                Log.e("firebase", "Error getting data", it)
+            }
         }
+        else
+        {
+            val mDatabase = FirebaseDatabase.getInstance().getReference()
+            mDatabase.child("users").child(arr.recruiterId).get().addOnSuccessListener {
+                Log.i("firebase", "Got value ${it.value}")
+                val value = it.getValue<User>()
+                holder._title.setText(arr.title)
+                holder._description.setText(arr.description)
+                if (value != null) {
+                    holder._employee.setText(value.username)
+                }
+                val db = Firebase.firestore
+                db.collection("dbRating")
+                    .whereEqualTo("jobId", arr.id)
+                    .get()
+                    .addOnSuccessListener { result ->
+                        for (document in result) {
+                            holder._employee_rating.text = document.get("rating").toString()
+                            holder._finish_time.text = document.get("timeFinished").toString()
+//                    Log.w(ContentValues.TAG, document.get("id").toString())
+                        }
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.w(ContentValues.TAG, "Error getting documents.", exception)
+                    }
+            }.addOnFailureListener{
+                Log.e("firebase", "Error getting data", it)
+            }
+        }
+
     }
 }
