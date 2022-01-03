@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.example.kotlinmessenger.jobs.jobItem
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.sql.Time
@@ -53,6 +54,7 @@ class rating : Fragment() {
         val nowTime: Calendar = Calendar.getInstance()
         val rateButton : Button = view.findViewById(R.id.rateButton)
         val id = JobName.hashCode().toString() + nowTime.timeInMillis.hashCode().toString()
+        val newData  = ratingItem(JobId, )
 
         view.findViewById<TextView>(R.id.rating_job_name).text = JobName
         view.findViewById<TextView>(R.id.rating_worker_name).text = Worker
