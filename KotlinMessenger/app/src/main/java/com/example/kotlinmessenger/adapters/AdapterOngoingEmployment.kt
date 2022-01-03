@@ -34,9 +34,9 @@ class AdapterOngoingEmployment (var parentFragmentManager : FragmentManager,
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val emp = arrayAdapter[position]
+        Log.i("WorkerID", emp.recruiterId)
 
         val mDatabase = FirebaseDatabase.getInstance().getReference()
-        //get boss name from id
         mDatabase.child("users").child(emp.recruiterId).get().addOnSuccessListener {
             Log.i("firebase", "Got value ${it.value}")
             val value = it.getValue<User>()
@@ -45,7 +45,18 @@ class AdapterOngoingEmployment (var parentFragmentManager : FragmentManager,
                 holder._employer.text = value.username
             }
             holder._detailsButton.setOnClickListener {
-                changeFragment(R.id.ongoingframelayout, ongoing_employment_detail(), parentFragmentManager)
+                var mBundle = Bundle()
+                mBundle.putString("jobId", emp.id)
+                mBundle.putString("jobname", emp.title)
+                mBundle.putString("recruiterId", emp.recruiterId)
+                mBundle.putString("workerId", emp.worker)
+                if (value != null) {
+                    mBundle.putString("worker", value.username)
+                }
+
+                val jobDetails = ongoing_job_details()
+                jobDetails.arguments = mBundle
+                changeFragment(R.id.ongoingframelayout, jobDetails, parentFragmentManager)
             }
         }.addOnFailureListener{
             Log.e("firebase", "Error getting data", it)
