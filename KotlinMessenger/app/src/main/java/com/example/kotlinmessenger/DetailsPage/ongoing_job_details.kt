@@ -10,10 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.example.kotlinmessenger.CompanyOngoing
 import com.example.kotlinmessenger.R
 import com.example.kotlinmessenger.changeFragment
 import com.example.kotlinmessenger.messages.ChatLogActivity
+import com.example.kotlinmessenger.messages.LatestMessagesActivity
 import com.example.kotlinmessenger.messages.NewMessageActivity
 import com.example.kotlinmessenger.messages.UserItem
 import com.example.kotlinmessenger.models.User
@@ -88,6 +90,7 @@ class ongoing_job_details : Fragment() {
         }
 
         imageButton2.setOnClickListener {
+            Log.d("BEKBTN", "HAHAHA")
             var SendId = arguments?.getString("recruiterId").toString()
 
             val ref = FirebaseDatabase.getInstance().getReference("/users/$SendId")
@@ -107,9 +110,25 @@ class ongoing_job_details : Fragment() {
 
                 }
             })
-
+            fetchCurrentUser()
 
         }
+    }
+
+    private fun fetchCurrentUser() {
+        val uid = FirebaseAuth.getInstance().uid
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+        ref.addListenerForSingleValueEvent(object: ValueEventListener {
+
+            override fun onDataChange(p0: DataSnapshot) {
+                LatestMessagesActivity.currentUser = p0.getValue(User::class.java)
+                Log.d("LatestMessages", "Current user ${LatestMessagesActivity.currentUser?.profileImageUrl}")
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+        })
     }
 
     companion object {
