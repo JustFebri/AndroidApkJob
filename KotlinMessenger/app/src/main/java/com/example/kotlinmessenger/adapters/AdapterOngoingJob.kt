@@ -48,6 +48,7 @@ class AdapterOngoingJob (var parentFragmentManager : FragmentManager,
                 var mBundle = Bundle()
                 mBundle.putString("jobId", emp.id)
                 mBundle.putString("jobname", emp.title)
+                mBundle.putString("recruiterId", emp.recruiterId)
                 if (value != null) {
                     mBundle.putString("worker", value.username)
                 }

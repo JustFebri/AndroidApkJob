@@ -52,6 +52,7 @@ class rating : Fragment() {
         val JobId = arguments?.getString("jobId").toString()
         val nowTime: Calendar = Calendar.getInstance()
         val rateButton : Button = view.findViewById(R.id.rateButton)
+        val id = JobName.hashCode().toString() + nowTime.timeInMillis.hashCode().toString()
 
         view.findViewById<TextView>(R.id.rating_job_name).text = JobName
         view.findViewById<TextView>(R.id.rating_worker_name).text = Worker
@@ -65,6 +66,15 @@ class rating : Fragment() {
 //                    changeFragment(R.id.myframe, HomeActivity(), parentFragmentManager)
                     Log.d("Firebase", "accept data success")
                     changeFragment(R.id.ongoingframelayout, CompanyOngoing(), parentFragmentManager)
+                }
+                .addOnFailureListener{
+                    Log.d("Firebase", it.message .toString())
+                }
+            db.collection("dbRating").document(id)
+                .set(newData)
+                .addOnSuccessListener {
+//                    changeFragment(R.id.myframe, HomeActivity(), parentFragmentManager)
+                    Log.d("Firebase", "Add data success")
                 }
                 .addOnFailureListener{
                     Log.d("Firebase", it.message .toString())
