@@ -77,6 +77,8 @@ class ongoing_job_details : Fragment() {
             var mBundle = Bundle()
             mBundle.putString("jobname", arguments?.getString("jobname").toString())
             mBundle.putString("worker", arguments?.getString("worker").toString())
+            mBundle.putString("workerId", arguments?.getString("workerId").toString())
+            mBundle.putString("recruiterId", arguments?.getString("recruiterId").toString())
             mBundle.putString("workeremail", email)
             mBundle.putString("jobId", jobId)
 
