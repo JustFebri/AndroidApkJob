@@ -73,7 +73,7 @@ class job : Fragment() {
 //                    Log.w(ContentValues.TAG, document.get("id").toString())
                 }
                 recyclerview.layoutManager = LinearLayoutManager(view?.context)
-                recyclerview.adapter = adapterJobs(parentFragmentManager, listjobs, false)
+                recyclerview.adapter = fragmentManager?.let { adapterJobs(it, listjobs, false) }
             }
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)
