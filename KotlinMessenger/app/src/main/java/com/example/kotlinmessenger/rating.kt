@@ -59,6 +59,7 @@ class rating : Fragment() {
         view.findViewById<TextView>(R.id.rating_finish_time).text = nowTime.time.toString()
 
         rateButton.setOnClickListener {
+            val Rating = view.findViewById<RatingBar>(R.id.ratingBar).rating
             db.collection("dbJobs").document(JobId)
                 .update("status", "finished")
                 .addOnSuccessListener {
