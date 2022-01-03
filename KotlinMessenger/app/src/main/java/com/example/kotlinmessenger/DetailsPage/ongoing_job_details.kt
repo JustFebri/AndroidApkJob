@@ -69,7 +69,7 @@ class ongoing_job_details : Fragment() {
 
             val rating = rating()
             rating.arguments = mBundle
-            changeFragment(R.id.rvOngoingJob, rating, parentFragmentManager)
+            changeFragment(R.id.ongoingframelayout, rating, parentFragmentManager)
 
         }
     }
