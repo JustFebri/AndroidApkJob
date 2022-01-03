@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmessenger.R
 import com.example.kotlinmessenger.adapters.adapterJobs
 import com.example.kotlinmessenger.changeFragment
-import com.example.kotlinmessenger.job_details
-import com.example.kotlinmessenger.myJobDetails
+import com.example.kotlinmessenger.DetailsPage.*
 import com.google.firebase.firestore.FirebaseFirestore
 
 class adapterHsJobs (var parentFragmentManager : FragmentManager,

@@ -1,5 +1,6 @@
 package com.example.kotlinmessenger.adapters
 
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,9 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlinmessenger.R
+import com.example.kotlinmessenger.*
+import com.example.kotlinmessenger.DetailsPage.myJobDetails
+import com.example.kotlinmessenger.DetailsPage.ongoing_job_details
 import com.example.kotlinmessenger.jobs.jobItem
 import com.example.kotlinmessenger.models.User
 import com.google.firebase.database.FirebaseDatabase
@@ -42,7 +45,12 @@ class AdapterOngoingJob (var parentFragmentManager : FragmentManager,
                 holder._worker.text = value.username
             }
             holder._detailsButton.setOnClickListener {
+                var mBundle = Bundle()
+                mBundle.putString("jobId", emp.id)
 
+                val jobDetails = ongoing_job_details()
+                jobDetails.arguments = mBundle
+                changeFragment(R.id.ongoingframelayout, jobDetails, parentFragmentManager)
             }
         }.addOnFailureListener{
             Log.e("firebase", "Error getting data", it)

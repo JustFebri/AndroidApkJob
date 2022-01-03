@@ -15,6 +15,7 @@ import com.example.kotlinmessenger.models.User
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.example.kotlinmessenger.DetailsPage.*
 
 class AdapterOngoingEmployment (var parentFragmentManager : FragmentManager,
                                 val arrayAdapter: ArrayList<jobItem>, val isMine : Boolean) : RecyclerView.Adapter<AdapterOngoingEmployment.ListViewHolder>()

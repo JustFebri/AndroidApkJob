@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.kotlinmessenger.messages.LatestMessagesActivity
 import com.example.kotlinmessenger.models.User
+import com.example.kotlinmessenger.navigation.*
 import com.example.kotlinmessenger.registerlogin.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot

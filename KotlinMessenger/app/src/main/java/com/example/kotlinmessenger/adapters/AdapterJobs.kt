@@ -8,6 +8,8 @@ import android.widget.*
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmessenger.*
+import com.example.kotlinmessenger.DetailsPage.*
+import com.example.kotlinmessenger.DetailsPage.job_details
 import com.example.kotlinmessenger.jobs.jobItem
 import com.google.firebase.firestore.FirebaseFirestore
 

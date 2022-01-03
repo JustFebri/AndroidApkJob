@@ -1,4 +1,4 @@
-package com.example.kotlinmessenger
+package com.example.kotlinmessenger.DetailsPage
 
 import android.content.ContentValues
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlinmessenger.R
 import com.example.kotlinmessenger.adapters.adapterApplicants
 import com.example.kotlinmessenger.jobs.applicantion
 import com.google.firebase.auth.FirebaseAuth

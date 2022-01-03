@@ -1,10 +1,22 @@
-package com.example.kotlinmessenger
+package com.example.kotlinmessenger.DetailsPage
 
+import android.content.ContentValues
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.kotlinmessenger.CompanyOngoing
+import com.example.kotlinmessenger.R
+import com.example.kotlinmessenger.adapters.adapterApplicants
+import com.example.kotlinmessenger.changeFragment
+import com.example.kotlinmessenger.jobs.applicantion
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +32,7 @@ class ongoing_job_details : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +48,26 @@ class ongoing_job_details : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_ongoing_job_details, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val terminate : Button = view.findViewById(R.id.terminateContract)
+        val jobId = arguments?.getString("jobId").toString()
+        val uid = FirebaseAuth.getInstance().uid
+
+        terminate.setOnClickListener {
+            db.collection("dbJobs").document(jobId)
+                .update("status", "finished")
+                .addOnSuccessListener {
+//                    changeFragment(R.id.myframe, HomeActivity(), parentFragmentManager)
+                    Log.d("Firebase", "accept data success")
+                    changeFragment(R.id.ongoingframelayout, CompanyOngoing(), parentFragmentManager)
+                }
+                .addOnFailureListener{
+                    Log.d("Firebase", it.message .toString())
+                }
+        }
     }
 
     companion object {
