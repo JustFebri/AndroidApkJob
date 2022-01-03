@@ -33,8 +33,8 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlin.collections.ArrayList
 
-class adapterApplicants (var parentFragmentManager : FragmentManager, val arrayAdapter: ArrayList<applicantion>)
-    : RecyclerView.Adapter<adapterApplicants.ListViewHolder>()
+class AdapterApplicants (var parentFragmentManager : FragmentManager, val arrayAdapter: ArrayList<applicantion>)
+    : RecyclerView.Adapter<AdapterApplicants.ListViewHolder>()
 {
     inner class  ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var _applicantName : TextView = itemView.findViewById(R.id.applicant_name)

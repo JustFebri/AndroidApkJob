@@ -13,7 +13,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmessenger.R
-import com.example.kotlinmessenger.adapters.adapterApplicants
+import com.example.kotlinmessenger.adapters.AdapterApplicants
 import com.example.kotlinmessenger.jobs.applicantion
 import com.example.kotlinmessenger.messages.ChatLogActivity
 import com.example.kotlinmessenger.messages.LatestMessagesActivity
@@ -85,7 +85,7 @@ class myJobDetails : Fragment() {
                 }
 
                 recyclerview.layoutManager = LinearLayoutManager(view?.context)
-                recyclerview.adapter = adapterApplicants(parentFragmentManager, applicantList)
+                recyclerview.adapter = AdapterApplicants(parentFragmentManager, applicantList)
             }
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)

@@ -1,5 +1,6 @@
 package com.example.kotlinmessenger.DetailsPage
 
+import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -69,24 +70,30 @@ class job_details : Fragment() {
 
         val newData  = applicantion(id, applicantID, recruiterId, jobId)
         apply.setOnClickListener {
-            db.collection("dbApplications").document(id)
-                .set(newData)
-                .addOnSuccessListener {
+            db.collection("dbApplications")
+                .whereEqualTo("jobId", jobId)
+                .get()
+                .addOnSuccessListener { result ->
+                    var flag : Boolean = true
+                    for (document in result) {
+                        if(document.get("applicantId").toString() == applicantID)
+                        {
+                            flag = false
+                            break
+                        }
+                    }
+                    db.collection("dbApplications").document(id)
+                        .set(newData)
+                        .addOnSuccessListener {
 //                    changeFragment(R.id.myframe, HomeActivity(), parentFragmentManager)
-                    Log.d("Firebase", "Add data success")
+                            Log.d("Firebase", "Add data success")
+                        }
+                        .addOnFailureListener{
+                            Log.d("Firebase", it.message .toString())
+                        }
                 }
-                .addOnFailureListener{
-                    Log.d("Firebase", it.message .toString())
-                }
-
-            db.collection("dbHistory").document(id)
-                .set(newData)
-                .addOnSuccessListener {
-//                    changeFragment(R.id.myframe, HomeActivity(), parentFragmentManager)
-                    Log.d("Firebase", "Add data success")
-                }
-                .addOnFailureListener{
-                    Log.d("Firebase", it.message .toString())
+                .addOnFailureListener { exception ->
+                    Log.w(ContentValues.TAG, "Error getting documents.", exception)
                 }
             fragmentManager?.let { it1 -> changeFragment(R.id.myframe, job(), it1) }
         }
