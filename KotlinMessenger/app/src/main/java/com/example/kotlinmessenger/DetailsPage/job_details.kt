@@ -82,15 +82,18 @@ class job_details : Fragment() {
                             break
                         }
                     }
-                    db.collection("dbApplications").document(id)
-                        .set(newData)
-                        .addOnSuccessListener {
+                    if(flag)
+                    {
+                        db.collection("dbApplications").document(id)
+                            .set(newData)
+                            .addOnSuccessListener {
 //                    changeFragment(R.id.myframe, HomeActivity(), parentFragmentManager)
-                            Log.d("Firebase", "Add data success")
-                        }
-                        .addOnFailureListener{
-                            Log.d("Firebase", it.message .toString())
-                        }
+                                Log.d("Firebase", "Add data success")
+                            }
+                            .addOnFailureListener{
+                                Log.d("Firebase", it.message .toString())
+                            }
+                    }
                 }
                 .addOnFailureListener { exception ->
                     Log.w(ContentValues.TAG, "Error getting documents.", exception)
