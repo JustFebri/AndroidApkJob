@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmessenger.R
+import com.example.kotlinmessenger.changeFragment
+import com.example.kotlinmessenger.job
 import com.example.kotlinmessenger.jobs.applicantion
 import com.example.kotlinmessenger.jobs.jobItem
 import com.google.firebase.auth.FirebaseAuth
@@ -86,6 +88,7 @@ class job_details : Fragment() {
                 .addOnFailureListener{
                     Log.d("Firebase", it.message .toString())
                 }
+            fragmentManager?.let { it1 -> changeFragment(R.id.myframe, job(), it1) }
         }
         dt_title.text = jobtitle
         dt_description.text = jobdesc
