@@ -24,7 +24,6 @@ class adapterApplicants (var parentFragmentManager : FragmentManager, val arrayA
     inner class  ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var _applicantName : TextView = itemView.findViewById(R.id.applicant_name)
         var _applicantEmail : TextView = itemView.findViewById(R.id.applicant_email)
-        val _detailsButton : ImageButton = itemView.findViewById(R.id.applicantDetails)
         val acceptApplicant : ImageButton = itemView.findViewById(R.id.acceptapplicant)
     }
 

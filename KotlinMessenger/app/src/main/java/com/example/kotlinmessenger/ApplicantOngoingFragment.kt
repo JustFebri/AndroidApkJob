@@ -7,15 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmessenger.adapters.AdapterOngoingEmployment
-import com.example.kotlinmessenger.adapters.adapterJobs
 import com.example.kotlinmessenger.jobs.jobItem
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -54,7 +50,7 @@ class ApplicantOngoingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val recyclerview : RecyclerView = view.findViewById((R.id.rvongoingemployment))
+        val recyclerview : RecyclerView = view.findViewById((R.id.rvOngoingJob))
         val uid = FirebaseAuth.getInstance().uid
         db.collection("dbJobs")
             .whereEqualTo("worker", uid)
