@@ -41,6 +41,7 @@ class PlaceHolderOngoing : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        changeFragment(R.id.ongoingframelayout, CompanyOngoing(), parentFragmentManager)
         return inflater.inflate(R.layout.fragment_place_holder_ongoing, container, false)
     }
 
